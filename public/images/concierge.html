@@ -1,0 +1,1954 @@
+     <!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>MyOffice - Concierge</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="office space, workspace, shared space, co-working">
+		<meta name="description" content="Short and Long Term Office Rentals, co-working spaces, shared spaces and private offices">
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+		<link rel="stylesheet" type="text/css" href="css/select2.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/animate/animate.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="libs/font-awesome/css/font-awesome.css" rel="stylesheet">
+		<link href="libs/ionicons/css/ionicons.min.css" rel="stylesheet">
+		<link href="libs/icofont/icofont.min.css" rel="stylesheet">
+		<link href="libs/select2/css/select2.min.css" rel="stylesheet">
+		<link href="css/notification.css" rel="newest stylesheet">
+		<link href="css/app.css?_ver=2.2.2" rel="stylesheet">
+		<link href="css/custom.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="libs/daterange/daterangepicker.css" >
+		<link rel="stylesheet" href="css/toastr.min.css">
+
+	
+		<script src="js/main.js"></script>
+
+		<!-- Slider -->
+
+		<link rel="stylesheet" href="css/superslides.css">
+		<!-- Slider ends -->
+		<!-- Date range picker -->
+
+		<link rel="stylesheet" href="css/simpledatepicker/datepicker.css" type="text/css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css" type="text/css">
+		<!-- Date Range piker ends -->
+		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,700,300' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Eczar:700|Work+Sans:300,400,500,600,700|Montserrat:300,400,500,600,700" rel="stylesheet">
+		
+		
+		<script src="js/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/jquery_ui.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
+
+				<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA2Onc2s6bBRuIb8j9aBT8X_N3ZnaiwBQw&sensor=false&libraries=places"></script>
+				<!--[if lt IE 9]>
+		<link rel="stylesheet" href="css/iefix.css" type="text/css">
+		<link rel="stylesheet" href="css/sangaslider/ie8.css" type="text/css">
+		<script src="js/html5shiv.js"></script>
+
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" type="text/css" href="libs/daterange/daterangepicker.css" >
+	
+		<link rel="stylesheet" href="libs/fullcalendar/main.css">
+		<link rel="stylesheet" href="libs/toastr/toastr.min.css">
+	
+		<script src="libs/fullcalendar/main.js"></script>
+	
+	
+		<!-- Fonts -->
+		<link rel="dns-prefetch" href="//fonts.gstatic.com">
+		<link rel='stylesheet' id='google-font-css-css'  href='https://fonts.googleapis.com/css?family=Poppins%3A300%2C400%2C500%2C600' type='text/css' media='all' />
+          
+	
+		<script src="js/main.js"></script>
+
+		<!-- Slider -->
+
+		<link rel="stylesheet" href="css/superslides.css">
+		<!-- Slider ends -->
+		<!-- Date range picker -->
+
+		<script>
+			var bookingCore = {
+				url:'http://myoffice.mybackpocket.co',
+				url_root:'http://myoffice.mybackpocket.co',
+				booking_decimals:0,
+				thousand_separator:'.',
+				decimal_separator:',',
+				currency_position:'left',
+				currency_symbol:'$',
+				currency_rate:'1',
+				date_format:'MM/DD/YYYY',
+				map_provider:'gmap',
+				map_gmap_key:'AIzaSyCRu_qlT0HNjPcs45NXXiOSMd3btAUduSc',
+				map_options:{
+					map_lat_default:'',
+					map_lng_default:'',
+					map_clustering:'on',
+					map_fit_bounds:'on',
+				},
+				routes:{
+					login:'http://myoffice.mybackpocket.co/login',
+					register:'http://myoffice.mybackpocket.co/register',
+					checkout:'http://myoffice.mybackpocket.co/booking/doCheckout'
+				},
+				module:{
+					hotel:'http://myoffice.mybackpocket.co/hotel',
+					car:'http://myoffice.mybackpocket.co/car',
+					tour:'http://myoffice.mybackpocket.co/tour',
+					space:'http://myoffice.mybackpocket.co/space',
+					flight:"http://myoffice.mybackpocket.co/flight"
+				},
+				currentUser: 0,
+				isAdmin : 0,
+				rtl: 0,
+				markAsRead:'http://myoffice.mybackpocket.co/notify/markAsRead',
+				markAllAsRead:'http://myoffice.mybackpocket.co/notify/markAllAsRead',
+				loadNotify : 'http://myoffice.mybackpocket.co/notify/notifications',
+				pusher_api_key : '',
+				pusher_cluster : '',
+			};
+			var i18n = {
+				warning:"Warning",
+				success:"Success",
+			};
+			var daterangepickerLocale = {
+				"applyLabel": "Apply",
+				"cancelLabel": "Cancel",
+				"fromLabel": "From",
+				"toLabel": "To",
+				"customRangeLabel": "Custom",
+				"weekLabel": "W",
+				"first_day_of_week": 1,
+				"daysOfWeek": [
+					"Su",
+					"Mo",
+					"Tu",
+					"We",
+					"Th",
+					"Fr",
+					"Sa"
+				],
+				"monthNames": [
+					"January",
+					"February",
+					"March",
+					"April",
+					"May",
+					"June",
+					"July",
+					"August",
+					"September",
+					"October",
+					"November",
+					"December"
+				],
+			};
+		</script>
+		<!-- Styles -->
+
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				if (window.location.href.indexOf("rental/details") > -1) {
+
+				} else {
+					localStorage.removeItem('time_array');
+				}
+
+				google.maps.event.addDomListener(window, 'load', function() {
+					var options = {
+						types : ['(regions)'],
+						componentRestrictions: {country: ["us", "ca"]}
+					};
+					var places = new google.maps.places.Autocomplete(document.getElementById('txtPlaces'), options);
+					google.maps.event.addListener(places, 'place_changed', function() {
+						var place = places.getPlace();
+						var address = place.formatted_address;
+						var latitude = place.geometry.location.lat();
+						var longitude = place.geometry.location.lng();
+						var fulllocation = document.getElementById('txtPlaces').value;
+						$('#location').val(fulllocation);
+						$('#address').val(address);
+						$('#lat').val(latitude);
+						$('#long').val(longitude);
+
+						if ($('#dpd1').val().trim() == "") {
+							
+							$('#dpd1').focus();
+
+						} else if ($('#dpd2').val().trim() == "") {
+
+							//$('#dpd2').focus();
+
+						}
+
+						var geocoder = new google.maps.Geocoder;
+						geocoder.geocode({
+							'address' : address
+						}, function(results, status) {
+							if (status == google.maps.GeocoderStatus.OK) {
+								result = results[0].address_components;
+								var info = [];
+								for (var i = 0; i < result.length; ++i) {
+									if (result[i].types[0] == "route") {
+										var stas = result[i].long_name;
+									}
+									if (result[i].types[0] == "administrative_area_level_1") {
+										var state = result[i].long_name;
+										if (state != undefined && state != "") {
+											state = state.trim();
+										}
+									}
+									if (result[i].types[0] == "locality") {
+										var city = result[i].long_name;
+										if (city != undefined && city != "") {
+											city = city.trim();
+										}
+									}
+									if (result[i].types[0] == "country") {
+										var country = result[i].long_name;
+										if (country != undefined && country != "") {
+											country = country.trim();
+										}
+
+									}
+
+								}
+
+								if (city != undefined && city != "") {
+									$('#searchcity').val(city);
+								}
+								if (state != undefined && state != "") {
+									$('#searchstate').val(state);
+								}
+
+							}
+						});
+
+					});
+				});
+
+				$('#txtPlaces').click(function() {
+
+					$('#errordisp').hide();
+
+					$('#txtPlaces').val("");
+
+					$('#location').val("");
+					$('#address').val("");
+					$('#lat').val("");
+					$('#long').val("");
+
+				});
+
+			});
+
+		</script>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#errordisp').hide();
+				$('#searchx').click(function() {
+					//alert("dbdbdb");
+
+					if ($('#txtPlaces').val().trim() == "") {
+
+						$('#errordisp').html("Please Set a Location");
+						$('#errordisp').show();
+						$('#errordisp').fadeOut(5000);
+						return false;
+
+					}
+
+					if ($('#location').val() == "") {
+						$('#errordisp').html("Please Choose a Location from the List");
+						$('#errordisp').show();
+						$('#errordisp').fadeOut(5000);
+						return false;
+
+					}
+
+					if ($('#dpd1').val().trim() != "") {
+
+						var indate = $('#dpd1').val();
+						if (isDate(indate)) {
+							$('#indate').val(indate);
+						} else {
+							alert("Invalid Date!");
+							return false;
+						}
+					}
+
+					if ($('#dpd2').val().trim() != "") {
+
+						var outdate = $('#dpd2').val();
+						if (isDate(outdate)) {
+							$('#outdate').val(outdate);
+						} else {
+							alert("Invalid date format");
+							return false;
+						}
+
+					}
+
+					if (isNaN($('#guest').val())) {
+
+						$('#errordisp').html("Number of Guests can be in Numeric Only");
+						$('#errordisp').show();
+						$('#errordisp').fadeOut(5000);
+						return false;
+
+					}
+
+					var guestno = $('#guest').val();
+					$('#guests').val(guestno);
+
+					$('form#searchsubmit').submit();
+
+				});
+				/*
+				 $('#dpd2').on('focus', function() {
+
+				 var nowTemp = new Date();
+				 var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+				 var newDate = new Date(now)
+				 newDate.setDate(newDate.getDate() + 1);
+				 checkout.setValue(newDate);
+
+				 });
+				 */
+				$('.clrnn').click(function() {
+
+					var value = "";
+					$('#dpd1').datepicker('setValue', "");
+					$('#dpd2').datepicker('setValue', "");
+					$('#dpd1').val("");
+					$('#dpd2').val("");
+
+				});
+
+				$('.boxcimage').click(function() {
+
+					var loc = $(this).attr("id");
+
+					var get = loc.split('##');
+					var id = get[0];
+					var place = get[1];
+
+					if (id.trim() != "" && place.trim() != "") {
+
+						window.location = 'http://mofront.myoffice.ca/index.php?page=search/rentals/' + id + '/' + place + '';
+
+					}
+
+				});
+
+				$('.middle').click(function() {
+
+					var loc = $(this).attr("id");
+
+					if (loc != undefined) {
+						var get = loc.split('##');
+						var id = get[0];
+						var place = get[1];
+
+						if (id.trim() != "" && place.trim() != "") {
+
+							window.location = 'http://mofront.myoffice.ca/index.php?page=search/rentals/' + id + '/' + place + '';
+
+						}
+
+					}
+
+				});
+
+				function isDate(dateStr) {
+
+					var datePat = /^(\d{1,2})(\/|-)(\d{1,2})(\/|-)(\d{4})$/;
+					var matchArray = dateStr.match(datePat);
+					// is the format ok?
+
+					if (matchArray == null) {
+						// alert("Please enter date as either mm/dd/yyyy or mm-dd-yyyy.");
+						return false;
+					}
+
+					month = matchArray[1];
+					// p@rse date into variables
+					day = matchArray[3];
+					year = matchArray[5];
+
+					if (month < 1 || month > 12) {// check month range
+						// alert("Month must be between 1 and 12.");
+						return false;
+					}
+
+					if (day < 1 || day > 31) {
+						// alert("Day must be between 1 and 31.");
+						return false;
+					}
+
+					if ((month == 4 || month == 6 || month == 9 || month == 11) && day == 31) {
+						// alert("Month " + month + " doesn`t have 31 days!")
+						return false;
+					}
+
+					if (month == 2) {// check for february 29th
+						var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+						if (day > 29 || (day == 29 && !isleap)) {
+							// alert("February " + year + " doesn`t have " + day + " days!");
+							return false;
+						}
+					}
+					return true;
+					// date is valid
+				}
+
+			});
+
+			function logout() {
+
+				$.ajax({
+
+					type : "POST",
+					cache : false,
+
+					url : "http://mofront.myoffice.ca/index.php?page=index/logout",
+
+					success : function(data) {
+						//alert(data);
+						if (data == "1") {
+							location.reload(true);
+						}
+
+					}
+				});
+			}
+
+			function login() {
+
+				var username = $('#username').val().trim();
+
+				var password = $('#lpassword').val();
+
+				//
+
+				var pass_len = password.length;
+
+				if (username == "") {
+					$('#unameerror').html('Please Enter Your Username');
+
+					$('#unameerror').addClass('show');
+
+					setTimeout(function() {
+						$('#unameerror').removeClass('show');
+					}, 1700);
+
+				}
+				if (password == "") {
+					$('#passerror').html('Please Enter Your Password');
+					$('#passerror').addClass('show');
+
+					setTimeout(function() {
+						$('#passerror').removeClass('show');
+					}, 1700);
+
+					return false;
+				}
+
+				/**/
+				$.ajax({
+
+					type : "POST",
+					cache : false,
+
+					url : "http://mofront.myoffice.ca/index.php?page=index/loginprocess",
+
+					data : {
+						'username' : username,
+						'pword' : password
+					},
+
+					success : function(data) {
+
+						if (data == "1") {
+
+							$('#unameerror').html('Please Enter Your Username');
+
+							$('#unameerror').addClass('show');
+
+							setTimeout(function() {
+								$('#unameerror').removeClass('show');
+							}, 1700);
+
+							return false;
+
+						}
+						if (data == "2") {
+
+							$('#passerror').html('Please Enter Your Password');
+
+							$('#passerror').addClass('show');
+
+							setTimeout(function() {
+								$('#passerror').removeClass('show');
+							}, 1700);
+
+							return false;
+
+						}
+						if (data == "3") {
+							//location.reload(true);
+							window.location.href = "http://mofront.myoffice.ca/index.php?page=user/dashboard";
+						}
+						if (data == "4") {
+
+							$('#passerror').html('Invalid Username or Password ');
+
+							$('#passerror').addClass('show');
+
+							setTimeout(function() {
+								$('#passerror').removeClass('show');
+							}, 1700);
+
+							return false;
+
+						}
+
+					}
+				});
+			}
+
+
+			$(document).ready(function() {
+				$("#emailuser").blur(function() {
+
+					var email = $('#emailuser').val().trim();
+					//	if(email!="" && isemail
+					//alert(email);
+					$.ajax({
+
+						type : "POST",
+						cache : false,
+
+						url : "http://mofront.myoffice.ca/index.php?page=index/emailexist",
+
+						data : {
+							'email' : email
+						},
+
+						success : function(data) {
+							//alert(data);
+
+							if (data == "1") {
+
+								$('#emailerror').html('This Email already Exists ');
+
+								$('#emailerror').addClass('show');
+								setTimeout(function() {
+									$('#emailerror').removeClass('show');
+								}, 1700);
+
+								return false;
+
+							}
+
+						}
+					});
+
+				})
+			});
+			function register() {
+
+				var fname = $('#fname').val().trim();
+
+				var lname = $('#lname').val().trim();
+				//var email=$('#emailuser').val().trim();
+				var email = document.getElementById("emailuser").value;
+				var country = $('#country').val().trim();
+				var cpassword = $('#cpassword').val();
+				var password = $('#password').val();
+				if (fname == "") {
+
+					$('#fnameerror').html('Please Enter Your First Name');
+
+					$('#fnameerror').addClass('show');
+					setTimeout(function() {
+						$('#fnameerror').removeClass('show');
+					}, 1700);
+
+					return false;
+				}
+				if (lname == "") {
+
+					$('#lnameerror').html('Please Enter Your Last Name');
+
+					$('#lnameerror').addClass('show');
+					setTimeout(function() {
+						$('#lnameerror').removeClass('show');
+					}, 1700);
+
+					return false;
+				}
+				if (/^[A-Za-z\s]+$/.test(fname) == false) {
+					$('#fnameerror').html('First Name Must Contain only Letters');
+
+					$('#fnameerror').addClass('show');
+					setTimeout(function() {
+						$('#fnameerror').removeClass('show');
+					}, 1700);
+
+					return false;
+				}
+				if (/^[A-Za-z\s]+$/.test(lname) == false) {
+					$('#lnameerror').html('Last Name Must Contain only Letters');
+
+					$('#lnameerror').addClass('show');
+					setTimeout(function() {
+						$('#lnameerror').removeClass('show');
+					}, 1700);
+
+					return false;
+				}
+				if (email == "") {
+
+					$('#emailerror').html('Please Enter Your Email');
+
+					$('#emailerror').addClass('show');
+					setTimeout(function() {
+						$('#emailerror').removeClass('show');
+					}, 1700);
+
+					return false;
+				}
+				var regex = /^([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)@([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)[\\.]([a-zA-Z]{2,9})$/;
+
+				if (!regex.test(email)) {
+					$('#emailerror').html('Invalid Email');
+
+					$('#emailerror').addClass('show');
+					setTimeout(function() {
+						$('#emailerror').removeClass('show');
+					}, 1700);
+
+					return false;
+				}
+				if (country == "") {
+
+					$('#countyerror').html('Please Select a Country');
+
+					$('#countyerror').addClass('show');
+					setTimeout(function() {
+						$('#countyerror').removeClass('show');
+					}, 1700);
+
+					return false;
+				}
+				if (password == "") {
+
+					$('#passwrderror').html('Please Enter a Password');
+
+					$('#passwrderror').addClass('show');
+					setTimeout(function() {
+						$('#passwrderror').removeClass('show');
+					}, 1700);
+
+					return false;
+				}
+				if (cpassword == "") {
+
+					$('#cpassworderror').html('Please Confirm Your Password');
+
+					$('#cpassworderror').addClass('show');
+					setTimeout(function() {
+						$('#cpassworderror').removeClass('show');
+					}, 1700);
+
+					return false;
+				}
+				var min_password = '4';
+				var pass_len = password.length;
+				var cpass_len = cpassword.length;
+				if (pass_len < min_password) {
+					$('#passwrderror').html('Minimum Password Length Must be ' + min_password);
+
+					$('#passwrderror').addClass('show');
+					setTimeout(function() {
+						$('#passwrderror').removeClass('show');
+					}, 1700);
+
+					return false;
+				}
+
+				if (cpass_len < min_password) {
+					$('#cpassworderror').html('Minimum Password Length Must be ' + min_password);
+
+					$('#cpassworderror').addClass('show');
+					setTimeout(function() {
+						$('#cpassworderror').removeClass('show');
+					}, 1700);
+
+					return false;
+				}
+				if (password != cpassword) {
+					$('#cpassworderror').html('Password and Confirm password Must be Same');
+
+					$('#cpassworderror').addClass('show');
+					setTimeout(function() {
+						$('#cpassworderror').removeClass('show');
+					}, 1700);
+
+					return false;
+				}
+				//var emailid=JSON.stringify(email);
+
+				$.ajax({
+
+					type : "POST",
+					cache : false,
+
+					url : "http://mofront.myoffice.ca/index.php?page=index/registerprocess",
+
+					data : {
+						'pword' : password,
+						'cpword' : cpassword,
+						'country' : country,
+						'fname' : fname,
+						'lname' : lname,
+						'email' : email
+					},
+
+					success : function(data) {
+						//alert(data);
+
+						if (data == "1") {
+
+							$('#fnameerror').html('Please Enter Your First Name');
+
+							$('#fnameerror').addClass('show');
+							setTimeout(function() {
+								$('#fnameerror').removeClass('show');
+							}, 1700);
+
+							return false;
+
+						} else if (data == "2") {
+							$('#lnameerror').html('Please Enter Your Last Name');
+
+							$('#lnameerror').addClass('show');
+							setTimeout(function() {
+								$('#lnameerror').removeClass('show');
+							}, 1700);
+
+							return false;
+
+						} else if (data == "3") {
+							$('#emailerror').html('Please Enter Your Email');
+
+							$('#emailerror').addClass('show');
+							setTimeout(function() {
+								$('#emailerror').removeClass('show');
+							}, 1700);
+
+							return false;
+						} else if (data == "4") {
+							$('#countyerror').html('Please Select a Country');
+
+							$('#countyerror').addClass('show');
+							setTimeout(function() {
+								$('#countyerror').removeClass('show');
+							}, 1700);
+
+							return false;
+
+						} else if (data == "5") {
+
+							$('#passwrderror').html('Please Enter a Password');
+
+							$('#passwrderror').addClass('show');
+							setTimeout(function() {
+								$('#passwrderror').removeClass('show');
+							}, 1700);
+
+							return false;
+
+						} else if (data == "6") {
+
+							$('#passwrderror').html('Minimum Password Length Must be ' + min_password);
+
+							$('#passwrderror').addClass('show');
+							setTimeout(function() {
+								$('#passwrderror').removeClass('show');
+							}, 1700);
+
+							return false;
+
+						} else if (data == "7") {
+
+							$('#cpassworderror').html('Please Confirm Your Password');
+
+							$('#cpassworderror').addClass('show');
+							setTimeout(function() {
+								$('#cpassworderror').removeClass('show');
+							}, 1700);
+
+							return false;
+
+						} else if (data == "8") {
+
+							$('#cpassworderror').html('Password and Confirm password Must be Same');
+
+							$('#cpassworderror').addClass('show');
+							setTimeout(function() {
+								$('#cpassworderror').removeClass('show');
+							}, 1700);
+
+							return false;
+
+						} else if (data == "9") {
+
+							$('#emailerror').html('Invalid Email');
+
+							$('#emailerror').addClass('show');
+							setTimeout(function() {
+								$('#emailerror').removeClass('show');
+							}, 1700);
+
+							return false;
+
+						} else if (data == "10") {
+
+							$('#fnameerror').html('First Name Must Contain only Letters');
+
+							$('#fnameerror').addClass('show');
+							setTimeout(function() {
+								$('#fnameerror').removeClass('show');
+							}, 1700);
+
+							return false;
+
+						} else if (data == "11") {
+
+							$('#lnameerror').html('Last Name Must Contain only Letters');
+
+							$('#lnameerror').addClass('show');
+							setTimeout(function() {
+								$('#lnameerror').removeClass('show');
+							}, 1700);
+
+							return false;
+
+						} else if (data == 12) {
+							$('#cpassworderror').html('Minimum Password Length Must be ' + min_password);
+
+							$('#cpassworderror').addClass('show');
+							setTimeout(function() {
+								$('#cpassworderror').removeClass('show');
+							}, 1700);
+
+							return false;
+						} else if (data == 13) {
+							$('#emailerror').html('This Email already Exists ');
+
+							$('#emailerror').addClass('show');
+							setTimeout(function() {
+								$('#emailerror').removeClass('show');
+							}, 1700);
+
+							return false;
+						} else {
+							var cx = data.split("-");
+							var id = cx[0];
+							var defaultsatys = cx[1];
+
+							if (defaultsatys == 2) {
+
+								$('#regs').hide();
+								//$('#msg1').html('Successfully Registered <p class="robotoregular fontsize13 lgraytext">Your account is currently in Pending. Admin will verify and approve it soon.</p> ');
+								$('#msg1').html('Successfully Registered <p class="robotoregular fontsize13 lgraytext">Account activation link is sent to your email. please check your email and confirm your account.</p> ');
+
+								//$('#msg2').html('Your account is currently in Pending. Admin will verify and approve it soon.');
+
+							} else {
+
+								$('#regs').hide();
+								$('#msg1').html('Successfully Registered <p class="robotoregular fontsize13 lgraytext">Thank You for Registering with us. Your account is now active.</p> ');
+								//$('#msg2').html('Thank You for Registering with us. Your account is now active.');
+
+							}
+
+							$.ajax({
+
+								type : "POST",
+								cache : false,
+
+								//url : "http://mofront.myoffice.ca/index.php?page=index/mailsen",
+								url : "http://mofront.myoffice.ca/index.php?page=index/verifyemailaddress",
+
+								data : {
+									'id' : id
+								}
+
+							});
+
+							if (defaultsatys == 1) {
+
+								location.reload(true);
+							}
+						}
+
+					}
+				});
+
+			}
+
+			function forgotpassword() {
+				window.location.href = "http://mofront.myoffice.ca/index.php?page=forgotpassword/forgotpassword";
+			}
+
+			function howimage(id) {
+				window.location.href = "http://mofront.myoffice.ca/index.php?page=help/section/" + id;
+			}
+
+		</script>
+
+		<style>
+			html, body {
+				width: 100%;
+				height: 100%;
+			}
+			.mainslider {
+				width: 100%;
+				height: 100%;
+				background-color: #EBEFEF;
+			}
+			.slides-container {
+				z-index: 1;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--  Login Starts -->
+
+		<div class="loginwrperoverlay"></div>
+		<div class="loginbox">
+			<div class="loouter">
+				<div class="lomiddle">
+					<div class="loinner col-md-5 col-sm-6 col-lg-4 col-center nopadding">
+						<div class="lobox whitebg fulwidthm left pdg30 login-box">
+							<div class="registerclose lgraytext">
+								<i class="fa fa-times"></i>
+							</div>
+							<div class="loginrow fulwidthm left mgnB15 text-center josfinsanbold blacktext fontsize24">
+								Login With Your Account							</div>
+							<div class="loginrow fulwidthm left josfinsanbold graytext mgnB15">
+								<label class="formlabel fontsize13 robotoregular graytext">Email</label><span class=" required">*</span>
+								<input type="email" id="username" class="cmnfrminput fulwidthm inputiconpdng" placeholder="Email">
+								<span class="loginicons"><i class="fa fa-user"></i></span>
+								<div class="erorshow" id="unameerror"></div>
+							</div>
+							<div class="loginrow fulwidthm left josfinsanbold graytext mgnB15">
+								<label class="formlabel fontsize13 robotoregular graytext">Password</label><span class=" required">*</span>
+								<input type="password" id="lpassword" class="cmnfrminput  fulwidthm inputiconpdng" placeholder="Password">
+								<span class="loginicons"><i class="fa fa-lock"></i></span>
+								<div class="erorshow" id="passerror"></div>
+							</div>
+							
+							<div class="loginrow fulwidthm left josfinsanbold graytext mgnB15">
+								<div class="col-lg-6 col-md-6 col-sm-6 mgnB15 registerBtntx">
+								<button class=" btn btn-success whitetext fulwidthm font-size14 robotomedium" onClick="login()">
+									Log In								</button>
+							      </div>
+						      </div>
+							<div class="fulwidthm forget-signup"> 
+								<div class=" loginrow   robotoregular fontsize12 graytext mgnB15">
+									<a  class="greentext frgtpaswrdclick" onClick="forgotpassword()">Forgot password </a>
+								</div> 
+								<div class=" loginrow graytext mgnB15 icon-center">
+									<i class="greentext ">|</i>
+								</div>
+								<div class="loginrow   robotoregular fontsize12 graytext mgnB15">
+									<a class="greentext signupclick">Sign Up</a>
+								</div>
+							</div>
+							
+														<div class="socialAuthStages">
+								<div class="loginrow orPlx fulwidthm left josfinsanregular fontsize16 graytext mgnB15 text-center">
+									<span>or</span>
+								</div>
+																<div class="loginrow fbLoginBtn fulwidthm left josfinsanregular fontsize16 graytext mgnB15 text-center">
+									<a href="http://mofront.myoffice.ca/index.php?page=user/facebook">
+									<div class="s-wrapper">
+										<svg viewBox="0 0 32 32" role="presentation" aria-hidden="true" focusable="false" style="height: 18px; width: 18px; display: block; fill: currentcolor;">
+											<path d="m8 14.41v-4.17c0-.42.35-.81.77-.81h2.52v-2.08c0-4.84 2.48-7.31 7.42-7.35 1.65 0 3.22.21 4.69.64.46.14.63.42.6.88l-.56 4.06c-.04.18-.14.35-.32.53-.21.11-.42.18-.63.14-.88-.25-1.78-.35-2.8-.35-1.4 0-1.61.28-1.61 1.73v1.8h4.52c.42 0 .81.42.81.88l-.35 4.17c0 .42-.35.71-.77.71h-4.21v16c0 .42-.35.81-.77.81h-5.21c-.42 0-.8-.39-.8-.81v-16h-2.52a.78.78 0 0 1 -.78-.78" fill-rule="evenodd"></path>
+										</svg>
+										<span>Log in With Facebook</span>
+									</div> </a>
+								</div>
+																								<div class="loginrow gmailLoginBtn fulwidthm left josfinsanregular fontsize16 graytext mgnB15 text-center">
+									<a href="http://mofront.myoffice.ca/index.php?page=user/google">
+									<div class="s-wrapper">
+										<svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 18px; width: 18px; display: block;">
+											<g fill="none" fill-rule="evenodd">
+												<path d="M9 3.48c1.69 0 2.83.73 3.48 1.34l2.54-2.48C13.46.89 11.43 0 9 0 5.48 0 2.44 2.02.96 4.96l2.91 2.26C4.6 5.05 6.62 3.48 9 3.48z" fill="#EA4335"></path><path d="M17.64 9.2c0-.74-.06-1.28-.19-1.84H9v3.34h4.96c-.1.83-.64 2.08-1.84 2.92l2.84 2.2c1.7-1.57 2.68-3.88 2.68-6.62z" fill="#4285F4"></path><path d="M3.88 10.78A5.54 5.54 0 0 1 3.58 9c0-.62.11-1.22.29-1.78L.96 4.96A9.008 9.008 0 0 0 0 9c0 1.45.35 2.82.96 4.04l2.92-2.26z" fill="#FBBC05"></path><path d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.84-2.2c-.76.53-1.78.9-3.12.9-2.38 0-4.4-1.57-5.12-3.74L.97 13.04C2.45 15.98 5.48 18 9 18z" fill="#34A853"></path><path d="M0 0h18v18H0V0z"></path>
+											</g>
+										</svg>
+										<span>Log in With Google</span>
+									</div> </a>
+								</div>
+															</div>
+													</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="registerbox">
+			<div class="loouter" >
+				<div class="lomiddle">
+					<div class="loinner ">
+
+						<div class="registerboxin whitebg fulwidthm left  ">
+
+							<div class="registerclose lgraytext">
+								<i class="fa fa-times"></i>
+							</div>
+							<div class="loginrow fulwidthm left mgnB15 text-center josfinsanbold blacktext fontsize24" id="msg1">
+								Register Now 								<p class="robotoregular fontsize13 lgraytext">
+								<!--	Please Fill Out the Required Fields.--> In order to add your listing you need to create an account first. 
+								</p>
+							</div>
+							<div id="regs">
+								<div class="loginrow fulwidthm left josfinsanbold graytext ">
+									<div class="col-lg-6 col-md-6 col-sm-6 mgnB15">
+										<label class="formlabel fontsize13 robotoregular graytext"> First Name  <span class=" required">*</span></label>
+										<input id="fname" type="text" class="cmnfrminput fulwidthm ">
+										<!-- errorinput -->
+										<div class="erorshow" id="fnameerror"></div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 mgnB15">
+										<label class="formlabel fontsize13 robotoregular graytext">Last Name  <span class=" required">*</span></label>
+										<input type="text" id="lname" class="cmnfrminput fulwidthm ">
+
+										<div class="erorshow" id="lnameerror"></div>
+									</div>
+								</div>
+								<div class="loginrow fulwidthm left josfinsanbold graytext ">
+									<div class="col-lg-6 col-md-6 col-sm-6 mgnB15">
+										<label class="formlabel fontsize13 robotoregular graytext"> Email  <span class=" required">*</span></label>
+										<input type="email" id="emailuser" name="emailuser" class="cmnfrminput fulwidthm ">
+
+										<div class="erorshow" id="emailerror"></div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 mgnB15">
+										<label class="formlabel fontsize13 robotoregular graytext">Country of Residence <span class=" required">*</span></label>
+										<select id="country" class="formselect" style="width:100%" data-placeholder="Select a Country">
+																						<option value="227">United States</option>
+																						<option value="39">Canada</option>
+																						<option value="1">Afghanistan</option>
+																						<option value="2">Albania</option>
+																						<option value="3">Algeria</option>
+																						<option value="4">American Samoa</option>
+																						<option value="5">Andorra</option>
+																						<option value="6">Angola</option>
+																						<option value="7">Anguilla</option>
+																						<option value="8">Antarctica</option>
+																						<option value="9">Antigua and Barbuda</option>
+																						<option value="10">Argentina</option>
+																						<option value="11">Armenia</option>
+																						<option value="12">Aruba</option>
+																						<option value="13">Australia</option>
+																						<option value="14">Austria</option>
+																						<option value="15">Azerbaijan</option>
+																						<option value="16">Bahamas</option>
+																						<option value="17">Bahrain</option>
+																						<option value="18">Bangladesh</option>
+																						<option value="19">Barbados</option>
+																						<option value="20">Belarus</option>
+																						<option value="21">Belgium</option>
+																						<option value="22">Belize</option>
+																						<option value="23">Benin</option>
+																						<option value="24">Bermuda</option>
+																						<option value="25">Bhutan</option>
+																						<option value="26">Bolivia</option>
+																						<option value="27">Bosnia and Herzegovina</option>
+																						<option value="28">Botswana</option>
+																						<option value="29">Bouvet Island</option>
+																						<option value="30">Brazil</option>
+																						<option value="31">British Indian Ocean Territory</option>
+																						<option value="32">British Virgin Islands</option>
+																						<option value="33">Brunei</option>
+																						<option value="34">Bulgaria</option>
+																						<option value="35">Burkina Faso</option>
+																						<option value="36">Burundi</option>
+																						<option value="37">Cambodia</option>
+																						<option value="38">Cameroon</option>
+																						<option value="40">Cape Verde</option>
+																						<option value="41">Cayman Islands</option>
+																						<option value="42">Central African Republic</option>
+																						<option value="43">Chad</option>
+																						<option value="44">Chile</option>
+																						<option value="45">China</option>
+																						<option value="46">Christmas Island</option>
+																						<option value="47">Cocos Islands</option>
+																						<option value="48">Colombia</option>
+																						<option value="49">Comoros</option>
+																						<option value="50">Cook Islands</option>
+																						<option value="51">Costa Rica</option>
+																						<option value="52">Croatia</option>
+																						<option value="53">Cuba</option>
+																						<option value="54">Cyprus</option>
+																						<option value="55">Czech Republic</option>
+																						<option value="56">Democratic Republic of the Congo</option>
+																						<option value="57">Denmark</option>
+																						<option value="58">Djibouti</option>
+																						<option value="59">Dominica</option>
+																						<option value="60">Dominican Republic</option>
+																						<option value="61">East Timor</option>
+																						<option value="62">Ecuador</option>
+																						<option value="63">Egypt</option>
+																						<option value="64">El Salvador</option>
+																						<option value="65">Equatorial Guinea</option>
+																						<option value="66">Eritrea</option>
+																						<option value="67">Estonia</option>
+																						<option value="68">Ethiopia</option>
+																						<option value="69">Falkland Islands</option>
+																						<option value="70">Faroe Islands</option>
+																						<option value="71">Fiji</option>
+																						<option value="72">Finland</option>
+																						<option value="73">France</option>
+																						<option value="74">French Guiana</option>
+																						<option value="75">French Polynesia</option>
+																						<option value="76">French Southern Territories</option>
+																						<option value="77">Gabon</option>
+																						<option value="78">Gambia</option>
+																						<option value="79">Georgia</option>
+																						<option value="80">Germany</option>
+																						<option value="81">Ghana</option>
+																						<option value="82">Gibraltar</option>
+																						<option value="83">Greece</option>
+																						<option value="84">Greenland</option>
+																						<option value="85">Grenada</option>
+																						<option value="86">Guadeloupe</option>
+																						<option value="87">Guam</option>
+																						<option value="88">Guatemala</option>
+																						<option value="89">Guinea</option>
+																						<option value="90">Guinea-Bissau</option>
+																						<option value="91">Guyana</option>
+																						<option value="92">Haiti</option>
+																						<option value="93">Heard Island and McDonald Islands</option>
+																						<option value="94">Honduras</option>
+																						<option value="95">Hong Kong</option>
+																						<option value="96">Hungary</option>
+																						<option value="97">Iceland</option>
+																						<option value="98">India</option>
+																						<option value="99">Indonesia</option>
+																						<option value="100">Iran</option>
+																						<option value="101">Iraq</option>
+																						<option value="102">Ireland</option>
+																						<option value="103">Israel</option>
+																						<option value="104">Italy</option>
+																						<option value="105">Ivory Coast</option>
+																						<option value="106">Jamaica</option>
+																						<option value="107">Japan</option>
+																						<option value="108">Jordan</option>
+																						<option value="109">Kazakhstan</option>
+																						<option value="110">Kenya</option>
+																						<option value="111">Kiribati</option>
+																						<option value="112">Kuwait</option>
+																						<option value="113">Kyrgyzstan</option>
+																						<option value="114">Laos</option>
+																						<option value="115">Latvia</option>
+																						<option value="116">Lebanon</option>
+																						<option value="117">Lesotho</option>
+																						<option value="118">Liberia</option>
+																						<option value="119">Libya</option>
+																						<option value="120">Liechtenstein</option>
+																						<option value="121">Lithuania</option>
+																						<option value="122">Luxembourg</option>
+																						<option value="123">Macao</option>
+																						<option value="124">Macedonia</option>
+																						<option value="125">Madagascar</option>
+																						<option value="126">Malawi</option>
+																						<option value="127">Malaysia</option>
+																						<option value="128">Maldives</option>
+																						<option value="129">Mali</option>
+																						<option value="130">Malta</option>
+																						<option value="131">Marshall Islands</option>
+																						<option value="132">Martinique</option>
+																						<option value="133">Mauritania</option>
+																						<option value="134">Mauritius</option>
+																						<option value="135">Mayotte</option>
+																						<option value="136">Mexico</option>
+																						<option value="137">Micronesia</option>
+																						<option value="138">Moldova</option>
+																						<option value="139">Monaco</option>
+																						<option value="140">Mongolia</option>
+																						<option value="141">Montserrat</option>
+																						<option value="142">Morocco</option>
+																						<option value="143">Mozambique</option>
+																						<option value="144">Myanmar</option>
+																						<option value="145">Namibia</option>
+																						<option value="146">Nauru</option>
+																						<option value="147">Nepal</option>
+																						<option value="148">Netherlands</option>
+																						<option value="149">Netherlands Antilles</option>
+																						<option value="150">New Caledonia</option>
+																						<option value="151">New Zealand</option>
+																						<option value="152">Nicaragua</option>
+																						<option value="153">Niger</option>
+																						<option value="154">Nigeria</option>
+																						<option value="155">Niue</option>
+																						<option value="156">Norfolk Island</option>
+																						<option value="157">North Korea</option>
+																						<option value="158">Northern Mariana Islands</option>
+																						<option value="159">Norway</option>
+																						<option value="160">Oman</option>
+																						<option value="161">Pakistan</option>
+																						<option value="162">Palau</option>
+																						<option value="163">Palestinian Territory</option>
+																						<option value="164">Panama</option>
+																						<option value="165">Papua New Guinea</option>
+																						<option value="166">Paraguay</option>
+																						<option value="167">Peru</option>
+																						<option value="168">Philippines</option>
+																						<option value="169">Pitcairn</option>
+																						<option value="170">Poland</option>
+																						<option value="171">Portugal</option>
+																						<option value="172">Puerto Rico</option>
+																						<option value="173">Qatar</option>
+																						<option value="174">Republic of the Congo</option>
+																						<option value="175">Reunion</option>
+																						<option value="176">Romania</option>
+																						<option value="177">Russia</option>
+																						<option value="178">Rwanda</option>
+																						<option value="179">Saint Helena</option>
+																						<option value="180">Saint Kitts and Nevis</option>
+																						<option value="181">Saint Lucia</option>
+																						<option value="182">Saint Pierre and Miquelon</option>
+																						<option value="183">Saint Vincent and the Grenadines</option>
+																						<option value="184">Samoa</option>
+																						<option value="185">San Marino</option>
+																						<option value="186">Sao Tome and Principe</option>
+																						<option value="187">Saudi Arabia</option>
+																						<option value="188">Senegal</option>
+																						<option value="189">Serbia and Montenegro</option>
+																						<option value="190">Seychelles</option>
+																						<option value="191">Sierra Leone</option>
+																						<option value="192">Singapore</option>
+																						<option value="193">Slovakia</option>
+																						<option value="194">Slovenia</option>
+																						<option value="195">Solomon Islands</option>
+																						<option value="196">Somalia</option>
+																						<option value="197">South Africa</option>
+																						<option value="198">South Georgia and the South Sandwich Islands</option>
+																						<option value="199">South Korea</option>
+																						<option value="200">Spain</option>
+																						<option value="201">Sri Lanka</option>
+																						<option value="202">Sudan</option>
+																						<option value="203">Suriname</option>
+																						<option value="204">Svalbard and Jan Mayen</option>
+																						<option value="205">Swaziland</option>
+																						<option value="206">Sweden</option>
+																						<option value="207">Switzerland</option>
+																						<option value="208">Syria</option>
+																						<option value="209">Taiwan</option>
+																						<option value="210">Tajikistan</option>
+																						<option value="211">Tanzania</option>
+																						<option value="212">Thailand</option>
+																						<option value="213">Togo</option>
+																						<option value="214">Tokelau</option>
+																						<option value="215">Tonga</option>
+																						<option value="216">Trinidad and Tobago</option>
+																						<option value="217">Tunisia</option>
+																						<option value="218">Turkey</option>
+																						<option value="219">Turkmenistan</option>
+																						<option value="220">Turks and Caicos Islands</option>
+																						<option value="221">Tuvalu</option>
+																						<option value="222">U.S. Virgin Islands</option>
+																						<option value="223">Uganda</option>
+																						<option value="224">Ukraine</option>
+																						<option value="225">United Arab Emirates</option>
+																						<option value="226">United Kingdom</option>
+																						<option value="228">United States Minor Outlying Islands</option>
+																						<option value="229">Uruguay</option>
+																						<option value="230">Uzbekistan</option>
+																						<option value="231">Vanuatu</option>
+																						<option value="232">Vatican</option>
+																						<option value="233">Venezuela</option>
+																						<option value="234">Vietnam</option>
+																						<option value="235">Wallis and Futuna</option>
+																						<option value="236">Western Sahara</option>
+																						<option value="237">Yemen</option>
+																						<option value="238">Zambia</option>
+																						<option value="239">Zimbabwe</option>
+																					</select>
+
+										<div class="erorshow" id="countyerror"></div>
+									</div>
+								</div>
+								<div class="loginrow fulwidthm left josfinsanbold graytext ">
+									<div class="col-lg-6 col-md-6 col-sm-6 mgnB15">
+										<label class="formlabel fontsize13 robotoregular graytext">Password <span class=" required">*</span></label>
+										<input id="password" type="password" class="cmnfrminput fulwidthm ">
+
+										<div class="erorshow" id="passwrderror"></div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 mgnB15">
+										<label class="formlabel fontsize13 robotoregular graytext">Confirm Password  <span class=" required">*</span></label>
+										<input id="cpassword" type="password" class="cmnfrminput fulwidthm ">
+
+										<div class="erorshow" id="cpassworderror"></div>
+									</div>
+								</div>
+								<div class="loginrow fulwidthm left josfinsanbold graytext mgnB15">
+									<div class="col-lg-6 col-md-6 col-sm-6 mgnB15 registerBtntx">
+										<button class=" btn btn-success whitetext fulwidthm font-size14 robotomedium" onClick="register()">
+											Register										</button>
+									</div>
+								</div>
+								<div class="loginrow fulwidthm left registerBtntxText josfinsanregular fontsize16 graytext mgnB15">
+									Already a  MyOffice member? <a class="greentext signinclick">Log In </a>
+								</div>
+																<div class="socialAuthStages register">
+									<div class="loginrow orPlx fulwidthm left josfinsanregular fontsize16 graytext mgnB15 text-center">
+										<span>or</span>
+									</div>
+																		<div class="loginrow fbLoginBtn fulwidthm left josfinsanregular fontsize16 graytext mgnB15 text-center">
+										<a href="http://mofront.myoffice.ca/index.php?page=user/facebook">
+										<div class="s-wrapper">
+											<svg viewBox="0 0 32 32" role="presentation" aria-hidden="true" focusable="false" style="height: 18px; width: 18px; display: block; fill: currentcolor;">
+												<path d="m8 14.41v-4.17c0-.42.35-.81.77-.81h2.52v-2.08c0-4.84 2.48-7.31 7.42-7.35 1.65 0 3.22.21 4.69.64.46.14.63.42.6.88l-.56 4.06c-.04.18-.14.35-.32.53-.21.11-.42.18-.63.14-.88-.25-1.78-.35-2.8-.35-1.4 0-1.61.28-1.61 1.73v1.8h4.52c.42 0 .81.42.81.88l-.35 4.17c0 .42-.35.71-.77.71h-4.21v16c0 .42-.35.81-.77.81h-5.21c-.42 0-.8-.39-.8-.81v-16h-2.52a.78.78 0 0 1 -.78-.78" fill-rule="evenodd"></path>
+											</svg>
+											<span>Log in With Facebook</span>
+										</div> </a>
+									</div>
+																											<div class="loginrow gmailLoginBtn fulwidthm left josfinsanregular fontsize16 graytext mgnB15 text-center">
+										<a href="http://mofront.myoffice.ca/index.php?page=user/google">
+										<div class="s-wrapper">
+											<svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 18px; width: 18px; display: block;">
+												<g fill="none" fill-rule="evenodd">
+													<path d="M9 3.48c1.69 0 2.83.73 3.48 1.34l2.54-2.48C13.46.89 11.43 0 9 0 5.48 0 2.44 2.02.96 4.96l2.91 2.26C4.6 5.05 6.62 3.48 9 3.48z" fill="#EA4335"></path><path d="M17.64 9.2c0-.74-.06-1.28-.19-1.84H9v3.34h4.96c-.1.83-.64 2.08-1.84 2.92l2.84 2.2c1.7-1.57 2.68-3.88 2.68-6.62z" fill="#4285F4"></path><path d="M3.88 10.78A5.54 5.54 0 0 1 3.58 9c0-.62.11-1.22.29-1.78L.96 4.96A9.008 9.008 0 0 0 0 9c0 1.45.35 2.82.96 4.04l2.92-2.26z" fill="#FBBC05"></path><path d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.84-2.2c-.76.53-1.78.9-3.12.9-2.38 0-4.4-1.57-5.12-3.74L.97 13.04C2.45 15.98 5.48 18 9 18z" fill="#34A853"></path><path d="M0 0h18v18H0V0z"></path>
+												</g>
+											</svg>
+											<span>Log in With Google</span>
+										</div> </a>
+									</div>
+																	</div>
+															</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Login ends -->
+		<div class="indexheaderwrper innerheader whitebg">
+			<div class="container-fluid">
+				<div class="indexlogo pull-left ">
+					<a href="index.html" class="fulwidthm left"><img src="images/logo_black.png" alt="MyOffice Logo" title="MyOffice"></a>
+				</div>
+				<div class="responsivehomebtn">
+					<i class="fa fa-bars"></i>
+				</div>
+				<ul class="menu">
+
+					<li class="has-submenu">
+						<a href="#" title="Find MyOffice">Find MyOffice</a>
+						<ul class="sub-menu">
+							<li><a href="#">Corporate</a></li><li><a href="#">Tech</a></li><li><a href="#">Meetings</a></li></ul>
+					</li>
+					<li class="has-submenu">
+						<a class="" href="#" title="How It Works">How It Works</a>
+						<ul class="sub-menu">
+							<li>
+								<a href="#">Guests</a>
+							</li>
+							<li>
+								<a href="#">Hosts</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a class="" href="http://myoffice.mybackpocket.co/page/concierge" title="Concierge">Concierge</a>
+					</li>
+										<li class="login">
+						<a href="javascript:;" class="signinbtn signinclickmain">Log In </a>
+					</li>
+					<li class="" >
+						<a href="javascript:;" class="signupbtn signupclickmain">List your space</a>
+					</li>
+														</ul>
+
+				<div class="right responsivemwnu">
+					<!-- <div class="responsivebtn "><i class="fa fa-bars"></i></div>-->
+					<div class="responsive_menulist">
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Header Ends --->
+
+		<div class="layout1">
+         
+
+			<section class="demo-hero-5">
+				<div class="container-xs-height full-height">
+				  <div class="col-xs-height col-middle text-center">
+					<h1 class="inner m-t-100 p-b-50 m-b-50 main-title">Concierge</h1>
+				  </div>
+				</div>
+			  <div class="bg-overlay" style="opacity: 0;"></div>
+			</section>
+
+			<!-- Slider ends -->
+
+            <div class=" container container-fixed-lg">
+
+				<!-- Tab panes -->
+				<div class="sub-page">
+				 <div class="slide-left padding-20 sm-no-padding" id="tab5">
+					<div class="row row-same-height">
+					  <div class="col-md-12">
+						<div class="padding-30 sm-padding-5">
+						   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rhoncus sapien eu metus consequat vulputate. Aenean gravida auctor nibh, sed ultricies quam rutrum vitae. Aenean feugiat elit eu orci suscipit, in hendrerit ex porttitor. Nunc ultricies mollis nisi, vel luctus odio porttitor vitae. Curabitur mattis id turpis sed tempor. Duis laoreet ultricies metus eget pharetra. Vestibulum pharetra ligula ut tempus ullamcorper. Nunc et ullamcorper lacus, eu varius metus. In mollis condimentum ipsum a consectetur. Ut lacus tellus, malesuada eu ligula vitae, sagittis pulvinar ipsum. Pellentesque vitae est ut erat faucibus pretium. Suspendisse eu efficitur sapien, non porta diam.</p>
+						   <p>Sed ut tortor mauris. Nulla tempor est tortor, eu efficitur dolor scelerisque luctus. Aliquam erat volutpat. Sed ac sapien nulla. Etiam bibendum scelerisque urna id eleifend. Etiam sodales ultricies elit ac dapibus. Curabitur vulputate gravida enim, commodo maximus quam venenatis at. Ut et nulla non libero malesuada tempus eu vel massa. Vivamus congue odio a augue varius congue. Aenean tortor felis, egestas quis nulla at, dapibus ultrices nulla. Nullam tempus massa id ligula convallis placerat. Pellentesque imperdiet tincidunt dui non scelerisque. In leo eros, varius in felis et, fringilla condimentum purus. </p>
+						</div>
+					  </div>
+					</div>
+				  </div>          
+				</div>
+  
+			</div> 
+
+			<!-- Booking ends -->
+			<div class="clearfix"></div>
+
+		</div>
+		<!-- Main Slider -->
+
+		<script type="text/javascript" src="js/jquery.superslides.js"></script>
+
+		<script type='text/javascript'>
+			$(document).ready(function() {
+				$('#slides').superslides({
+					animation : 'fade',
+					pagination : false,
+					play : 3000
+				});
+				$('.timepicker').timepicker({
+					'timeFormat' : 'h:i',
+					'minTime' : '1:00am',
+					'maxTime' : '12:30pm',
+				});
+			})
+		</script>
+
+		<!-- Main Slider ends -->
+		<!-- Content Change in Index -->
+		<script type="text/javascript" src="js/cycle.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(e) {
+
+				$("#in_start_time").val($("#timestart").val());
+				$("#in_start_ampm").val($("#timestart_am_pm").val());
+				$("#out_start_time").val($("#timeend").val());
+				$("#out_start_ampm").val($("#timeend_am_pm").val());
+
+				setInterval(function(){
+					$("#indate").val($('#dpd1').val());
+					$("#outdate").val($('#dpd2').val());
+				},500);
+
+
+				$(document).on("change", "#timestart", function() {
+					$("#in_start_time").val($(this).val());
+					$('#start_ampm').select2('open');
+				});
+
+				$(document).on("change", "#timestart_am_pm", function() {
+					$("#in_start_ampm").val($(this).val());
+					$('#dpd2').focus();
+				});
+
+				$(document).on("change", "#timeend", function() {
+					$("#out_start_time").val($(this).val());
+					$('#end_ampm').select2('open');
+				});
+
+				$(document).on("change", "#timeend_am_pm", function() {
+					$("#out_start_ampm").val($(this).val());
+					$('#guest').focus();
+					setTimeout(function() {
+						$("input#guest")[0].focus();
+					}, 100);
+				});
+
+				$(document).on("click", "#select2-start_time-results .select2-results__option", function() {
+					('#start_ampm').select2('open');
+				});
+
+				$('#cbox1').cycle({
+					fx : 'scrollDown',
+					speed : 500,
+					timeout : 4000,
+					pause : true,
+				});
+				$('#cbox2').cycle({
+					fx : 'scrollLeft',
+					speed : 500,
+					timeout : 6000,
+					pause : true,
+				});
+				$('#cbox3').cycle({
+					fx : 'scrollUp',
+					speed : 500,
+					timeout : 8000,
+					pause : true,
+				});
+				$('#cbox4').cycle({
+					fx : 'scrollUp',
+					speed : 500,
+					timeout : 4000,
+					pause : true,
+				});
+				$('#cbox5').cycle({
+					fx : 'scrollRight',
+					speed : 500,
+					timeout : 6000,
+					pause : true,
+				});
+				$('#cbox6').cycle({
+					fx : 'scrollDown',
+					speed : 500,
+					timeout : 8000,
+					pause : true,
+				});
+
+			});
+		</script>
+		<!-- Ends -->
+
+		<!-- Date range picker ends -->
+		<script type="text/javascript">
+			$(document).ready(function(e) {
+				//map mobile click
+				function viewport() {
+					var e = window, a = 'inner';
+					if (!('innerWidth' in window )) {
+						a = 'client';
+						e = document.documentElement || document.body;
+					}
+					return {
+						width : e[a + 'Width'],
+						height : e[a + 'Height']
+					};
+				}
+
+
+				$(document).on('click', '.indexheaderwrper .menu li.has-submenu>a', function() {
+					var w = viewport();
+					if (w.width < 992) {
+						$(this).closest('li').find('.sub-menu').slideToggle();
+						$(this).closest('li').toggleClass('open');
+					}
+				});
+				$(document).on('click', '.indexheaderwrper .responsivehomebtn', function() {
+					$('.indexheaderwrper .menu').slideToggle();
+				});
+				$(document).on('click', '.tabsproperty .tabs a', function() {
+					var id = $(this).attr('data-id');
+					$('.tabsproperty .tabcontainer .tabwrapper').hide();
+					$('.tabsproperty .tabcontainer #' + id).show();
+					$('.tabsproperty .tabs a').removeClass('active')
+					$(this).addClass('active');
+				});
+				var id = $('.tabsproperty .tabs a.active').attr('data-id');
+				$('.tabsproperty .tabcontainer .tabwrapper').hide();
+				$('.tabsproperty .tabcontainer #' + id).show();
+
+				// footer fixed
+				var windowwidth = $(window).width();
+				var footerheight = $('.fulfooter').outerHeight(true);
+				if (windowwidth > 1000) {
+					$('.footergap').css({
+						"height" : footerheight
+					});
+				} else {
+					$('.footergap').css({
+						"height" : 0
+					});
+				}
+				$(window).resize(function() {
+
+					var windowwidth = $(window).width();
+					var footerheight = $('.fulfooter').outerHeight(true);
+					if (windowwidth > 1000) {
+						$('.footergap').css({
+							"height" : footerheight
+						});
+					} else {
+						$('.footergap').css({
+							"height" : 0
+						});
+					}
+
+				});
+			});
+
+		</script>
+		
+		  <!-- Footer section -->
+<script type="text/javascript" src="js/common.js"></script>
+
+<div class="clearfix"></div>
+<footer class="mainfooter">
+	<div class="container">
+		<div class="footcol">
+			<h4>COMPANY</h4>
+			<ul>
+				<li>
+					<a href="http://myoffice.mybackpocket.co/page/about-us">About Us</a>
+				</li>
+				<li>
+					<a href="http://myoffice.mybackpocket.co/page/terms-of-service">Terms and Conditions</a>
+				</li>
+				<li>
+					<a href="http://myoffice.mybackpocket.co/page/privacy-policy">Privacy Policy </a>
+				</li>
+    		</ul>
+		
+	
+		</div>
+		<div class="footcol">
+			<h4>HOST SERVICES</h4>
+			<ul>
+				<li>
+					<a href="http://myoffice.mybackpocket.co/page/share-your-space">Share Your Space </a>
+				</li>
+				<li>
+					<a href="http://myoffice.mybackpocket.co/page/host-faqs">FAQs</a>
+				</li>
+				<li>
+					<a href="http://myoffice.mybackpocket.co/#register">Sign Up</a>
+				</li>
+				<li>
+					<a href="http://myoffice.mybackpocket.co/contact">Support</a>
+				</li>
+			</ul>
+		</div>
+		<div class="footcol">
+	     <h4>GUEST SERVICES</h4>
+			<ul>
+		    	<li>
+					<a href="http://myoffice.mybackpocket.co/page/guests-how-it-works">Be Our Guests</a>
+				</li>
+				<li>
+					<a href="http://myoffice.mybackpocket.co/contact">Support</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="sociallinks">
+			Join Us On
+			<ul class="socialul text-center">
+				<li class="sociali left">
+					<a class="sociala" href="https://www.facebook.com/myofficeinc" target="_blank"><i class="fa fa-facebook"></i></a>
+				</li>
+				<li class="sociali left">
+					<a class="sociala" href="https://www.instagram.com/myofficeinc/" target="_blank"><i class="fa fa-instagram"></i></a>
+				</li>
+			</ul>
+
+		</div>
+		<div class="clearfix"></div>
+		<div class="copyright">
+			Copyright &copy; 2022 My Office Inc. All Rights Reserved.		</div>
+		<div style="display:none;">
+					</div>
+	</div>
+	</div>
+</footer>
+<div class="coprightbtm fulwidthm left text-center footerbg">
+
+</div>
+
+
+<script type="text/javascript">
+	$(document).ready(function(e) {
+
+		$('.myacounthover').hover(function() {
+
+			$(this).children('.myacountdropdown').stop().fadeIn(200);
+
+		}, function() {
+			$(this).children('.myacountdropdown ').stop().fadeOut(200);
+		});
+
+		// RESPONSIVE MENU Starts
+
+		var menucontent = $('.rightmenu').html();
+		// main menu's Html
+
+		$('.responsive_menulist').html(menucontent);
+		// adding main menu to responsive menu
+
+		// if width > 1000px responsive menu and close btn Hide Starts
+
+		// if width > 1000px responsive menu and close btn Hide Ends
+
+		$('.responsivebtn').click(function(e) {
+			$(this).toggleClass("active");
+			$('.responsive_menulist').fadeToggle(200);
+			//$('.responsive_menulist').toggle( "drop", { direction: "right" }, 200);
+		});
+
+		$('.responsivebtn, .responsive_menulist').click(function(event) {
+			event.stopPropagation();
+
+		});
+		$(document).click(function(e) {
+			$('.responsivebtn').removeClass("active");
+			$('.responsive_menulist').fadeOut(200);
+		});
+
+		// Sub Menu showing in Responsive menu
+		$(".responsive_menulist .myacounthover").click(function() {
+
+			$(this).children('.responsive_menulist .myacountdropdown ').slideToggle(200);
+		});
+
+		// Sub Menu showing in Responsive menu	 Ends
+
+		// RESPONSIVE MENU ENDS
+
+	});
+
+</script>
+<script type="text/javascript" src="js/signinpopup.js"></script>
+
+<!-- Menu ends -->
+
+
+<script src="libs/lazy-load/intersection-observer.js"></script>
+<script async src="libs/lazy-load/lazyload.min.js"></script>
+<script>
+    // Set the options to make LazyLoad self-initialize
+    window.lazyLoadOptions = {
+        elements_selector: ".lazy",
+        // ... more custom settings?
+    };
+
+    // Listen to the initialization event and get the instance of LazyLoad
+    window.addEventListener('LazyLoad::Initialized', function (event) {
+        window.lazyLoadInstance = event.detail.instance;
+    }, false);
+
+
+</script>
+
+<!-- Animation ends -->
+<script src="libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!--script src="libs/jquery-3.3.1.min.js"></script-->
+<script src="libs/bootbox/bootbox.min.js"></script>
+<script type="text/javascript" src="libs/daterange/moment.min.js"></script>
+<script type="text/javascript" src="libs/daterange/daterangepicker.min.js"></script>
+<script src="libs/select2/js/select2.min.js"></script>
+<script src="js/functions.js"></script>
+<script src="libs/pusher.min.js"></script>
+<script src="js/home.js"></script>
+<script src="libs/toastr/toastr.min.js"></script>
+<!-- Date Range Picker Ends -->
+
+<!-- Footer section Ends -->
+
+<script src="http://myoffice.mybackpocket.co/libs/lodash.min.js"></script>
+<!--script src="http://myoffice.mybackpocket.co/libs/jquery-3.3.1.min.js"></script-->
+
+<script src="libs/vue/vue.js"></script>
+<script src="libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="libs/bootbox/bootbox.min.js"></script>
+<script src="libs/carousel-2/owl.carousel.min.js"></script>
+<script type="text/javascript" src="libs/daterange/moment.min.js"></script>
+<script type="text/javascript" src="libs/daterange/daterangepicker.min.js"></script>
+<script src="libs/select2/js/select2.min.js"></script>
+<script src="js/functions.js"></script>
+
+<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCRu_qlT0HNjPcs45NXXiOSMd3btAUduSc&libraries=places'></script><script src='https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js'></script><script src='http://myoffice.mybackpocket.co/libs/infobox.js'></script><script src='http://myoffice.mybackpocket.co/module/core/js/map-engine.js?_ver=2.2.2'></script>
+<script src="libs/pusher.min.js"></script>
+<script src="js/home.js"></script>
+<script src="libs/toastr/toastr.min.js"></script>
+
+<!-- animation and select -->
+<script type="text/javascript" src="js/animate/animate.js"></script>
+<script type="text/javascript" src="js/animate/wow.js"></script>
+<script type="text/javascript" src="js/select2.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(e) {
+
+	$(".formselect").select2();
+
+		$(".selectsearch, .footerselect").select2();
+
+		wow = new WOW({
+			animateClass : 'animated',
+			mobile : false,
+
+			offset : 100
+		});
+		wow.init();
+		// slect style
+
+	}); 
+</script>
+<script type="text/javascript">
+	(function(d, src, c) {
+		var t = d.scripts[d.scripts.length - 1], s = d.createElement('script');
+		s.id = 'la_x2s6df8d';
+		s.async = true;
+		s.src = src;
+		s.onload = s.onreadystatechange = function() {
+			var rs = this.readyState;
+			if (rs && (rs != 'complete') && (rs != 'loaded')) {
+				return;
+			}
+			c(this);
+		};
+		t.parentElement.insertBefore(s, t.nextSibling);
+	})(document, 'https://shredding.ladesk.com/scripts/track.js', function(e) {
+		LiveAgent.createButton('af5fe7b7', e);
+	}); 
+</script>
+<script type="text/javascript">
+	(function(d, src, c) {
+		var t = d.scripts[d.scripts.length - 1], s = d.createElement('script');
+		s.id = 'la_x2s6df8d';
+		s.async = true;
+		s.src = src;
+		s.onload = s.onreadystatechange = function() {
+			var rs = this.readyState;
+			if (rs && (rs != 'complete') && (rs != 'loaded')) {
+				return;
+			}
+			c(this);
+		};
+		t.parentElement.insertBefore(s, t.nextSibling);
+	})(document, 'https://shredding.ladesk.com/scripts/track.js', function(e) {
+	}); 
+</script>
+<script type="text/javascript">
+	(function(d, src, c) {
+		var t = d.scripts[d.scripts.length - 1], s = d.createElement('script');
+		s.id = 'la_x2s6df8d';
+		s.async = true;
+		s.src = src;
+		s.onload = s.onreadystatechange = function() {
+			var rs = this.readyState;
+			if (rs && (rs != 'complete') && (rs != 'loaded')) {
+				return;
+			}
+			c(this);
+		};
+		t.parentElement.insertBefore(s, t.nextSibling);
+	})(document, 'https://shredding.ladesk.com/scripts/track.js', function(e) {
+	}); 
+</script>
+</body>
+</html> 
+
+		<script type="text/javascript">
+			var nowTemp = new Date();
+			var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+			var checkin = $('#dpd1').datepicker({
+				onRender : function(date) {
+					return date.valueOf() < now.valueOf() ? 'disabled' : '';
+				}
+			}).on('changeDate', function(ev) {
+				if (ev.date.valueOf() >= checkout.date.valueOf()) {
+					var newDate = new Date(ev.date)
+					newDate.setDate(newDate.getDate());
+					checkout.setValue(newDate);
+					$('#start_time').select2('open');
+					//$('#dpd2')[0].focus();
+				}
+				checkin.hide();
+
+			}).data('datepicker');
+
+			var checkout = $('#dpd2').datepicker({
+				onRender : function(date) {
+					return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+				}
+			}).on('changeDate', function(ev) {
+
+				var othercheck = $('#dpd1').val();
+				console.log("Asdas");
+				$('#end_time').select2('open');
+				if (othercheck.trim() == "") {
+
+					var newDate = new Date(ev.date)
+					newDate.setDate(newDate.getDate());
+					checkin.setValue(newDate);
+					//$('#dpd1')[0].focus();
+
+				}
+
+				checkout.hide();
+
+			}).data('datepicker');
+
+			//
+
+		</script>
+		<script type="text/javascript">
+			$(document).ready(function(e) {
+
+				var exploreps = $('#explorediv').offset().top;
+				var hoitposition = $('#howitwork').offset().top;
+				$('.exploreclick').click(function(e) {
+					$('html, body').animate({
+						scrollTop : exploreps
+					}, 500);
+
+				});
+
+				$('.howitclick').click(function(e) {
+					$('html, body').animate({
+						scrollTop : hoitposition
+					}, 500);
+
+				});
+ 
+			});
+
+			$(document).on('keydown', '.form-search input', function(event) {
+				if (event.keyCode == 13) {
+					$('#searchx').trigger('click');
+				}
+			});
+
+			$(document).on('keydown', '.form-search select', function(event) {
+				if (event.keyCode == 13) {
+					$('#searchx').trigger('click');
+				}
+			});
+
+		</script>
+
+</body>
+</html> 		

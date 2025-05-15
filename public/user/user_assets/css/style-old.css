@@ -1,0 +1,967 @@
+/*
+
+* Override Pages default styles or create your own styles here
+
+*/
+.jumbotron h1.large-demo-text{
+	font-size: 150px;
+}
+.btn-primary, .btn-primary:focus,.btn-complete, .btn-complete:focus,.st-become-local-btn {
+    color: #000;
+    background-color: #FFC107 !important;
+    border: 1px solid #ffc107cb !important;
+    border-bottom: 1px solid rgba(18, 18, 18, 0.22) !important; 
+    font-family: 'Montserrat', sans-serif !important; 
+}
+.btn-primary.hover:not(.active), .btn-primary:hover:not(.active), .btn-primary .show .dropdown-toggle.btn-primary,.st-become-local-btn:hover {
+    background-color: #000000 !important;
+    color: #FFC107 !important;
+    border: 1px solid #000000cb !important;
+    border-bottom: 1px solid rgba(18, 18, 18, 0.22) !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.icon-text-search{
+	font-size: 42px;
+	width: 150%;
+}
+
+.horizontal-app-menu .header .header-md-height {
+    height: 75px;
+}
+.horizontal-app-menu .header {
+	background-color: #060606;
+}
+.horizontal-app-menu .menu-bar ul li.active {
+	border-bottom: none;
+}
+.horizontal-app-menu .menu-bar ul li a {
+    color: #ffc107;
+    text-transform: uppercase;
+}
+.horizontal-app-menu .header .search-link {
+	background: #345F65;
+    padding: 10px 35px;
+    border-radius: 30px;
+}
+.top-btn {
+	margin-right: 0px !important;
+    margin-left: 0px !important;
+    padding-top: 38px !important;
+    padding-right: 100px !important;
+    padding-bottom: 38px !important;
+    padding-left: 100px !important;
+    background-image: url(../img/banner-bg.png) !important;
+    background-position: bottom !important;
+    background-repeat: repeat !important;
+    background-size: cover !important;
+    position: relative;
+    z-index: 2;
+}
+.bg-overlay {
+    background-color: rgba(17, 19, 20, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.text-banner {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.st-become-local h2 {
+    font-size: 48px;
+    margin-top: 0;
+    margin-bottom: 0;
+	color: #fff;
+}
+.st-become-local-btn {
+	background-image: linear-gradient(to bottom,rgba(0,0,0,.01) 0,rgba(0,0,0,.02) 100%);
+    background-repeat: repeat-x;
+	border-color: #fff;
+    background-color: #fff;
+    font-weight: 450!important;
+    font-size: 16px!important;
+    color: var(#1A2B48,#1A2B48)!important;
+	padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 25px;
+    padding-right: 25px;
+	border-radius: 30px;
+    text-transform: uppercase;
+}
+
+.event_archive.one-column {
+    grid-template-columns: 1fr;
+    margin-bottom: 0px;
+}
+.event_item.type3 {
+    display: flex;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+}
+.event_item.type3 .image_feature img {
+    display: none;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.event_archive {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0;
+    display: grid;
+    display: -ms-flexbox;
+    flex-wrap: wrap;
+    grid-gap: 40px 35px;
+    margin-bottom: 50px;
+}
+.event_item.type3 .image_feature {
+    width: 270px;
+    height: auto;
+    position: relative;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.event_item.type3 .info_event {
+    width: calc(100% - 270px);
+    position: relative;
+    border: 1px solid #eae9f3;
+    border-left: 0;
+    border-radius: 0 6px 6px 0px;
+    padding: 20px 0px 25px 30px;
+}
+.event_item.type3 .info_event .event_ratting {
+    display: block;
+    margin-top: 15px;
+}
+.event_item.type3 .info_event .event-time {
+    margin-top: 18px;
+    margin-bottom: 9px;
+    line-height: 23px;
+}
+.event_item.type3 .info_event .event_location .event-icon {
+    margin-right: 6px;
+}
+.event_item.type3 .info_event .event_location a {
+    transition: 0.3s all ease;
+    outline: none;
+    text-decoration: none;
+}
+.event_item.type3 .info_event .event_location a {
+    transition: 0.3s all ease;
+    outline: none;
+    text-decoration: none;
+}
+.event_item.type3 .info_event .event_loop_price {
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 17px;
+    font-weight: 600;
+}
+.event_item.type3 .info_event .event-loop-favourite {
+    position: absolute;
+    right: 25px;
+    bottom: 23px;
+}
+.host-img {
+    position: absolute;
+    top: 15px;
+    right: 22px;
+}
+.image_feature .event-status {
+    position: absolute;
+    bottom: 10px;
+    right: 22px;
+}
+.image_feature .event-status a {
+    display: block;
+    font-size: 12px;
+    color: #fff;
+    padding: 7px 25px;
+    border-radius: 30px;
+    text-transform: capitalize;
+    outline: none;
+    text-decoration: none;
+    transition: 0.3s all ease;
+    text-transform: uppercase;
+}
+.info_event .event-status {
+    position: absolute;
+    top: 30px;
+    right: -1px;
+}
+.event_item.type3 .info_event .event-status .status.opening {
+    background-color: #3fcc5a;
+}
+
+.event_item.type3 .info_event .event-status .status {
+    display: block;
+    padding: 10px 20px;
+    border-right: 0;
+    border-radius: 6px 0 0 6px;
+    font-size: 16px;
+    color: #fff;
+}
+.event-icon .material-icons {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 15px;
+    padding: 6px 0;
+    float: left;
+    margin-right: 10px;
+    color: #7a7a7a;
+}
+.book-icon .material-icons {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 15px;
+    padding: 6px 0;
+    margin-right: 3px;
+    color: #7a7a7a;
+}
+.event-time .time {
+    font-size: 15px;
+    line-height: 26px;
+}
+.loca-add {
+    margin: 7px 0 0;
+    display: block;
+    float: left;
+    font-size: 13px;
+}
+.info-location,.event-time,.event-geust {
+    display: block;
+    float: left;
+    width: 100%;
+    line-height: 15px;
+}
+.host-img .thumbnail-wrapper {
+    width: 45px;
+    height: 45px;
+    float: none;
+    border: 2px solid #fff;
+}
+.host-img p {
+    font-size: 14px;
+}
+.wp-date {
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+}
+.wp-date .month {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    border-radius: 2px 2px 0 0;
+    color: #fff;
+    font-weight: 600;
+    height: 25px;
+    line-height: 25px;
+    background-color: #060606;
+}
+.wp-date .day-week {
+    display: inline-flex;
+    flex-direction: column;
+    height: 55px;
+    width: 90px;
+    background: #FFF;
+    border: 1px solid #ffc107;
+    border-bottom-width: 5px;
+    border-top: 0;
+    transition: all 0.3s;
+}
+.wp-date .day-week .day {
+    font-size: 28px;
+    line-height: 1;
+    padding-top: 10px;
+    display: inline-block;
+    font-weight: 600;
+}
+.btn-cal {
+    max-width: 100px;
+}
+.confirmed {
+    background-color: #6BAD12;
+}
+.pending {
+    background-color: #FFC107;
+}
+.btn-set .btn {
+    background-color: #FFC107; 
+    border: 1px solid #FFC107;
+    color: #000;
+    width: 100%;
+}
+.btn-set .btn-primary:hover:not(.active) {
+    background-color: #d09c00; 
+    border: 1px solid #d09c00;
+    color: #fff;
+}
+.book-id h3 {
+    font-size: 12px;
+    text-align: center;
+    background: #ccc;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin: 0;
+    line-height: 20px; 
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.info-title h3 {
+    font-size: 18px;
+    line-height: 25px;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+.image_feature {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.footer {
+    background-color: #FFC107; 
+}
+.copyright {
+    border: none;
+    text-align: center;
+}
+.cal-home .calendar-header {
+    display: none;
+}
+.cal-home .calendar-container {
+  height: calc(100% - 130px) !important;
+}
+.calendar-day {
+    background: #000;
+    padding: 16px 0;
+    border-radius: 25px; 
+}
+.options .date {
+    text-align: center;
+    font-size: 24px;
+}
+.day-name {
+    font-size: 78px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 85px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+.m-name {
+    font-size: 16px;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+.status-btn {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 30px;
+    margin: 10px 0 0;
+    font-weight: 600;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.book-id {
+    background: #fff;
+    display: inline-block;
+    padding: 2px 15px;
+    border-radius: 30px;
+    font-weight: 600;    
+}
+.booking-id {
+    background: #ccc;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-weight: 600;
+    margin: 10px 0;  
+}
+.card-radious {
+    border-radius: 25px !important;
+}
+
+.card-design2 .thumbnail-wrapper img {
+    width: 45px;
+    height: 45px;
+}
+.card-design2 .day-name {
+    font-size: 85px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 85px;
+    text-transform: uppercase;
+}
+.card-design2 .calendar-day {
+    padding: 20px 0;   
+}
+.card-design2  .m-name {
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 30px;
+}
+.card-design2 .status-btn {
+    padding: 5px 25px;
+    margin: 15px 0 15px;
+}
+.view-btn .btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #000;
+}
+.title h3 {
+    text-transform: uppercase;
+    color: #000;
+}
+.cal-plugin .full-height {
+   height: 87% !important;
+} 
+.full-height.cal-home {
+    height: 100% !important;  
+}
+.second-div img {
+    border-radius: 25px;
+    border: 2px solid #ccc;   
+}
+.horizontal-app-menu .menu-bar ul li:hover:not(.open) > a {
+    color: #d09c00 !important;
+}
+.lotal-amount {
+    color: #FFF;
+    margin-left: 5px; 
+    font-weight: 600;
+    font-size: 20px;
+}
+.header .profile-dropdown-toggle:after {
+    right: 8px;
+}
+.thumbnail-wrapper.d32 {
+    margin: 0 10px;
+}
+.profile-dropdown-toggle .thumbnail-wrapper {
+    border: 3px solid #fff;
+} 
+.header .bubble {
+    border: none !important;
+}
+.header-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+.header-wrap.header-wrap-block {
+    flex: 1;
+}
+.header .dropdown-menu {
+    left: -130px;
+}
+.welcome-bg {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-image: url(../img/white-wave.png);
+    background-color: #FFAD00;
+    background-repeat: repeat;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+    padding-top: 38px !important;
+    padding-right: 100px !important;
+    padding-bottom: 38px !important;
+    padding-left: 100px !important;
+}
+.horizontal-app-menu .menu-bar > ul > li.open > a {
+    color: #FFAD00 !important;
+}
+.horizontal-app-menu .menu-bar > ul > li > ul,.horizontal-app-menu .menu-bar > ul > li > ul:focus {
+    background: #060606 !important;
+    color: #FFAD00 !important;
+}
+.profile-dropdown {
+    background: #060606;
+}
+.dropdown-menu > li, .dropdown-menu > .dropdown-item {
+    color: #FFAD00 !important;
+}
+.dropdown-menu > a.dropdown-item:hover, .dropdown-menu > a.dropdown-item:focus, .dropdown-menu > a.dropdown-item:active {
+    background: #060606 !important;
+}
+.header-inner {
+    justify-content: start !important;
+}
+.icon-tooltip .material-icons {
+    color: #000;
+    margin-right: 8px;
+}
+.b-id {
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+}
+.options .months {
+
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+.info-div .col-sm-4 {
+    padding-right: 15px !important;
+    padding-left: 15px !important;   
+}
+.book-table .day-name {
+    font-size: 80px;
+    line-height: 80px;
+    font-weight: 600;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+.td-id {
+    font-size: 18px !important;
+    color: #000;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+.book-table .calendar-day {
+    padding: 25px 0;
+}
+.book-table .m-name {
+    font-size: 20px;
+    line-height: 25px; 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+.book-details .thumbnail-wrapper img {
+    width: 40px;
+    height: 40px;
+}
+.w-20 {
+    width: 5%;
+    padding: 5px 10px !important;
+}
+.w-40 {
+    width: 20%;
+    padding: 5px 10px !important;
+}
+.book-details table td {
+    vertical-align: middle !important;
+    padding: 8px !important;
+    line-height: 1 !important;
+}
+.item-table thead tr {
+    background-color: #FFC107; 
+}
+.item-table thead th {
+    font-size: 14px !important;
+    text-transform: uppercase !important;
+    color: #000 !important;
+}
+.tab-view .bottom-btn {
+    position: absolute;
+    bottom: -3%;
+    left: 0;
+    right: 0;
+}
+.icon-div {
+    width: 20px;
+    height: 35px;
+    float: left;
+    margin-right: 10px;   
+}
+.icon-row {
+    float: left;
+    width: 100%;
+}
+.aminti_icon {
+    display: inline-block;
+    font-size: 24px;
+    height: 30px;
+    width: 40px;
+}
+ul, li {
+    list-style: none;
+}
+.mgnT20 {
+    margin-top: 20px;
+}
+#slide4 ul {
+  padding: 0;
+}
+.aminitlistingul {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+}
+.detaillistingli.not .aminidis, .detaillistingli.not .aminti_icon {
+    text-decoration: line-through;
+    color: #d4d3d3;
+}
+.tab-content h3 {
+    font-size: 18px;
+    text-transform: uppercase;
+}
+#accordion .card-title a {
+    font-size: 16px;
+}
+.nav-tabs-fillup > li > a:after {
+    background: none repeat scroll 0 0 #060606;
+    border: 1px solid #060606;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.nav-tabs-fillup > li > a.active {
+    color: #FFC107 !important;
+    font-size: 14px !important;
+    vertical-align: middle;
+    position: relative;
+    top: 10px;
+}
+.nav-tabs > li > a {
+    padding: 25px 17px;
+}
+.nav-tabs-fillup > li > a {
+
+    font-size: 14px !important;  
+}
+.icon-details a,.icon-details a:hover {
+    color: #3f3f3f;
+}
+.btn-icon {
+    float: left;
+    padding: 0 30px
+}
+.data-tb-icon .btn-icon {
+    padding: 0 10px
+}
+.link-icon .material-icons {
+    font-size: 70px;
+    background: #FFC107;
+    padding: 30px;
+    border-radius: 70px;
+    color: #060606;
+    border: 1px solid #060606;
+}
+.link-icon .material-icons:hover {
+    background: #060606;
+    color: #FFC107;
+    border: 1px solid #060606;
+}
+.btn-icon h4 {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.btn-icon a,.btn-icon a:hover {
+    color: #000;
+}
+.item-table td {
+    padding: 10px !important;
+}
+.fs-18 {
+    font-size: 18px !important;
+}
+.border-bottom td {
+    border-bottom: 1px solid #ccc !important;
+}
+.item-table th {
+    font-weight: 700 !important;
+}
+.item-table h3 {
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+.item-table .view-btn .btn,.tab-view .view-btn .btn,.data-search .btn {
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.item-table .view-btn .btn-primary:hover,.item-table .view-btn .btn-primary.hover:not(.active), .item-table .view-btn .btn-primary:hover:not(.active),.tab-view .view-btn .btn-primary:hover,.tab-view .view-btn .btn-primary.hover:not(.active), .tab-view .view-btn .btn-primary:hover:not(.active) {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+.table-booking-view .bottom-btn {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+.dataTables_length label select {
+    text-align: center;
+}
+.data-tb-icon .btn .material-icons {
+    font-size: 22px;
+}
+.dataTables_length select {
+    width: 75px;
+    display: inline-block;
+}
+.btn-view {
+    background-color: #006db7;
+    color: #fff !important;
+    border-color:#006db7;
+}
+.btn.btn-view.btn-icon:hover {
+    background-color: #0060a0;
+    color: #fff !important;
+    border-color:#0060a0;
+}
+.btn-des {
+    background-color:#009586;
+    color: #fff !important;
+    border-color:#009586;
+}
+.btn.btn-des.btn-icon:hover {
+    background-color:#007a6e;
+    color: #fff !important;
+    border-color:#007a6e;
+}
+.btn-share {
+    background-color:#4b369f;
+    color: #fff !important;
+    border-color:#4b369f;
+}
+.btn.btn-share.btn-icon:hover {
+    background-color:#402a96;
+    color: #fff !important;
+    border-color:#402a96;
+}
+.btn-archive {
+    background-color:#eb0905;
+    color: #fff !important;
+    border-color:#eb0905;
+}
+.btn.btn-archive.btn-icon:hover {
+    background-color:#cc0906;
+    color: #fff !important;
+    border-color:#cc0906;
+}
+.data-table th {
+    vertical-align: middle !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    color: #060606 !important;
+    font-weight: 600 !important;
+}
+.data-table thead {
+    background-color: #f2f2f2;
+}
+.dataTables_wrapper .dataTables_paginate ul > li.active > a {
+    border: 1px solid #060606;
+    border-radius: 5px;
+    background: #060606;
+    color: #fff;
+    font-size: 14px;
+}
+.dataTables_wrapper .dataTables_paginate ul > li > a {
+    font-size: 14px;
+    color: #060606;
+    opacity: 1;
+}
+.dataTables_wrapper .dataTables_info {
+    color: #060606;
+    font-size: 14px;
+}
+.data-search label,.searchFilters label {
+    color: #060606 !important;
+    font-weight: 600 !important;
+}
+.card-header  label {
+    color: #060606 !important;
+}
+.datepicker table tr td.active:before,.calendar .calendar-container .view.month-view .tble .trow .tcell .month-date.active {
+    background-color: #ffc107 !important;  
+}
+.w-2 {
+  width:20%;
+}
+.w-3 {
+    width: 30%;
+}
+.w-5 {
+    width: 50%;
+}
+.second-div .image {
+    width: 100%;
+    height: 360px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto 15px;
+    border-radius: 25px;
+    border: 2px solid #ccc;
+}
+.copyright {
+    padding: 18px 0;
+}
+table.dataTable thead .sorting:after {
+    bottom: 21px; 
+}
+.data-tb-icon button img {
+    width: 15px;
+    height: 15px;
+}
+
+/*Responsive Strucure */
+
+/* iPad (Landscape) */
+@media (max-width: 2000px) {
+
+    .image_feature img {
+        max-width: 200px;
+    }
+    .loca-add {
+        font-size: 14px;   
+    }
+
+}
+@media (max-width: 1440px) {
+.image_feature img {
+    max-width: 185px;
+}
+.loca-add {
+    font-size: 13px;   
+}
+.book-table .calendar-day {
+    padding: 30px 10px;
+}
+.book-table .day-name {
+    font-size: 60px;
+    line-height: 60px;
+}
+.book-table .m-name {
+    font-size: 14px;
+    line-height: 25px;
+}
+
+}
+
+/* iPad (Portrait) */
+@media (max-width: 800px) {
+
+}
+
+/* Mobile Phones ( 6pluse Landscape)*/
+@media (max-width: 736px) {
+
+}
+
+/* Mobile Phones ( iPhone 6 and 6pluse Landscape)*/
+@media (max-width: 667px) {
+
+}
+
+
+/* Mobile Phones ( iPhone 5 and 5S Landscape)*/
+@media (max-width: 568px) {
+
+}
+
+/* Mobile Phones ( iPhone 4 and 4S Landscape)*/
+@media (max-width: 480px) {
+
+    .table-booking-view .bottom-btn {
+        position: initial;
+    }
+    .item-table .view-btn .btn, .tab-view .view-btn .btn, .data-search .btn {
+        padding: 12px 14px;
+        font-size: 12px;
+    }
+    .tab-view {
+        margin-top: 75px;
+    }
+    .btn-icon h4 {
+        font-size: 18px;
+    }
+    .link-icon .material-icons {
+        font-size: 50px;
+        padding: 25px;
+    }
+    .btn-icon {
+        float: initial;
+    }
+    .second-div .image {
+        width: 100%;
+    }
+
+}
+
+/* Mobile Phones ( iPhone 6 pluse Portrait)*/
+@media (max-width: 414px) {
+
+    .table-booking-view .bottom-btn {
+        position: initial;
+    }
+    .item-table .view-btn .btn, .tab-view .view-btn .btn, .data-search .btn {
+        padding: 12px 14px;
+        font-size: 12px;
+    }
+    .tab-view {
+        margin-top: 75px;
+    }
+    .btn-icon h4 {
+        font-size: 18px;
+    }
+    .link-icon .material-icons {
+        font-size: 50px;
+        padding: 25px;
+    }
+    .btn-icon {
+        float: initial;
+    }
+    .second-div .image {
+        width: 100%;
+    }
+
+}
+
+/* Mobile Phones ( iPhone 4 and 4S Portrait)*/
+@media (max-width: 320px) {
+
+    .table-booking-view .bottom-btn {
+        position: initial;
+    }
+    .item-table .view-btn .btn, .tab-view .view-btn .btn, .data-search .btn {
+        padding: 12px 14px;
+        font-size: 12px;
+    }
+    .tab-view {
+        margin-top: 75px;
+    }
+    .btn-icon h4 {
+        font-size: 18px;
+    }
+    .link-icon .material-icons {
+        font-size: 50px;
+        padding: 25px;
+    }
+    .btn-icon {
+        float: initial;
+    }
+    .second-div .image {
+        width: 100%;
+    }
+
+}
+
+
+

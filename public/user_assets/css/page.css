@@ -1,0 +1,301 @@
+
+.booking-h-actions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.booking-h-actions ul li {
+    width: 100%;
+}
+
+.booking-h-actions ul li a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #333;
+    font-size: 12px;
+    padding: 20px 0;
+    /* background: #eee; */
+    border-radius: 50px;
+}
+
+.booking-h-actions ul li a i {
+    font-size: 20px;
+}
+
+.booking-h-actions ul li a:hover {
+    color: #FEC107;
+    text-decoration: none;
+}
+
+.booking-h-statuses ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.booking-h-statuses ul::before {
+    content: "";
+    position: absolute;
+    height: 1px;
+    background: #ccc;
+    width: calc(100% - 50px);
+    top: 25px;
+    left: 10px;
+    z-index: 1;
+}
+
+.booking-h-statuses li .b-h-status {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+    border-radius: 50px;
+}
+
+.booking-h-statuses li .b-h-status .box {
+    background: #eee;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 9;
+}
+
+.booking-h-statuses li .b-h-status.completed .box {
+    /* background: #FEC107; */
+}
+
+
+.guest-info-box {
+    display: flex;
+    flex-direction: row;
+}
+
+.guest-info-box .info {
+    width: 50%;
+}
+
+.guest-info-box .info h1 {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.guest-info-box .info .info-details {
+    display: flex;
+    padding-top: 25px;
+}
+
+.guest-info-box .info .info-details .img-box {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.guest-info-box .info .info-details .img-box .img-item {
+    width: 45px;
+    height: 45px;
+    border-radius: 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.guest-info-box .info .info-details .img-box p.rating-average {
+    margin-top: 10px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.guest-info-box .info .info-details .img-box p.guest-bookings-count {
+    margin-top: 0;
+}
+
+.guest-info-box .info .info-details .details-box {
+    width: 60%;
+    padding-left: 15px;
+}
+
+.guest-info-box .info .info-details .details-box h4.name {
+    text-transform: uppercase;
+    font-size: 18px;
+    margin: 0;
+}
+
+.guest-info-box .info .info-details .details-box p.email,
+.guest-info-box .info .info-details .details-box p.number {
+    margin: 0;
+    font-size: 13px;
+}
+
+.guest-info-box .info .info-details .details-box a {
+    font-size: 13px;
+}
+
+.guest-info-box .info .info-details .details-box a.rate-btn.btn {
+    background: #59B0E1;
+    color: #fff;
+    margin-top: 5px;
+}
+
+.guest-info-box .feedback ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 25px;
+}
+
+.guest-info-box .feedback {
+    width: 35%;
+}
+
+.guest-info-box .feedback ul li {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guest-info-box .feedback ul li span:first-child {
+    text-align: right;
+    padding-right: 5px;
+    font-weight: 500;
+}
+
+.guest-info-box .feedback-card {
+    width: 25%;
+}
+
+.guest-info-box .feedback h1 {
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.guest-info-box .feedback-card {
+    width: 25%;
+    background: #FDF1CC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.guest-info-box .feedback-card h2 {
+    font-size: 45px;
+    font-weight: 600;
+}
+
+.guest-info-box .feedback-card h5,
+.guest-info-box .feedback-card p {
+    margin: 0;
+}
+
+.btn-primary.reverse {
+    background: #000 !important;
+    border-color: #000 !important;
+    color: #FEC107 !important;
+}
+
+.btn-primary.reverse:hover {
+    background: #FEC107 !important;
+    border-color: #FEC107 !important;
+    color: #000 !important;
+}
+
+.payment-card h2 {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #000;
+}
+
+.payment-card .payment-info {
+    display: flex;
+    align-items: center;
+}
+
+.payment-card .payment-info .amount {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: center;
+}
+
+.payment-card .payment-info .info h6,
+.payment-card .payment-info .amount h6 {
+    font-size: 14px;
+    margin: 0;
+    font-weight: lighter;
+}
+
+.payment-card .payment-info .amount h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+    color: #000;
+}
+
+.payment-card .payment-info .info-data {
+    display: flex;
+    justify-content: center;
+}
+
+.payment-card .payment-info .info-data h5.payment-method {
+    background: #FFC106;
+    color: #000;
+    font-size: 14px;
+    padding-left:10px;
+	padding-right:5px;
+	padding-top:12px;
+	padding-bottom:5px;
+    border: 1px solid #000;
+    margin-right: 10px;
+}
+
+.payment-actions {
+    text-align: center;
+    margin-top: 15px;
+    border-top: 1px solid #dedede;
+    padding-top: 15px;
+}
+
+.payment-card .payment-info .info h6,
+.payment-card .payment-info .amount h6 {
+    font-size: 14px;
+    margin: 0;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+
+.payment-card .payment-info .info-data .information h6,
+.payment-card .payment-info .info-data .information p {
+    margin: 2px 0;
+}
+
+.modal .modalbtn:hover
+{
+	background:#FFC107;
+	color:black;
+}	
