@@ -18,7 +18,7 @@ ini_set("memory_limit", "3000M");
 // Route::get('/', 'loginController@index')->name('login');
 // Route::post('/install/check-db', 'HomeController@checkConnectDatabase');
 
-CodeHelper::deletePendingOldBookings();
+// CodeHelper::deletePendingOldBookings();
 
 Route::get('/intro', 'LandingpageController@index');
 Route::get('/', 'HomeController@index')->name('home');
@@ -48,7 +48,7 @@ Route::get('/regenerate-all-images', 'HomeController@reGenerateAllImages')->name
 
 //Login
 Auth::routes(['verify' => false]);
-//Custom User Login and Register  
+//Custom User Login and Register
 Route::post('register', '\Modules\User\Controllers\UserController@userRegister')->name('auth.register');
 Route::post('login', '\Modules\User\Controllers\UserController@userLogin')->name('auth.login');
 
