@@ -810,7 +810,7 @@ class UserController extends FrontendController
         }
         $yearStartDate = date('Y-01-01') . " 00:00:00";
         $page_title = "User Dashboard";
-        $bookings = Booking::where('customer_id', Auth::id())->orderBy('id', 'DESC')->whereDate('start_date', '>', Carbon::now())->take(3)->get();
+        $bookings = Booking::where('customer_id', Auth::id())->orderBy('id', 'DESC')->whereDate('start_date', '>=', Carbon::now())->take(3)->get();
         $planBookings = [];
         return view('User::frontend.user_dashboard', compact('bookings', 'page_title', 'planBookings'));
     }
@@ -921,7 +921,7 @@ class UserController extends FrontendController
                                             </div>
                                             <div class="p-t-15">
                                                 <div class="book-details">
-                                                    <table class="table"> 
+                                                    <table class="table">
                                                         <tbody>
                                                         <tr>
                                                             <td colspan="4" class="td-id text-uppercase" id="b_id">
