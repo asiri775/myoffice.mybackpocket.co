@@ -142,6 +142,9 @@ $promoCredits = CreditCoupons::where('user_id', $row->id)
             <div class="modal-header justify-content-between">
                 <h5 style="font-family:Montserrat;font-size:16pt;font-weight:900;"
                     class="modal-title text-center w-100">&nbsp;&nbsp;Promo Codes
+                    <p><strong>How to Use your Promo Code:</strong></p>
+                    <p>Click on the Promo Code Link to see the Host’s Profile, and their listings.  The Promo Code is valid for any of the Host’s listings</p>
+                    <p>Copy the Code and Add to the Checkout form</p>
                     <p>Click on the Promo Code below to display the list of Spaces 
                         where the code will be valid for use</p>
                     <hr />
@@ -168,7 +171,12 @@ $promoCredits = CreditCoupons::where('user_id', $row->id)
                         }
                         ?>
                     <tr>
-                        <td><a href="{{$link}}" target="_blank" style="text-decoration: underline;"><?= $promoCredit->code ?></a></td>
+                        <td>
+                            <a href="{{$link}}" target="_blank" style="text-decoration: underline;"><?= $promoCredit->code ?></a>
+                            <a href="javascript:;" class="copyToClipboard ml-2" title="Copy" data-clipboard-text="<?= $promoCredit->code ?>">
+                                <i class="fa fa-copy"></i>
+                            </a>
+                        </td>
                         <td>#<?= $promoCredit->object_id ?></td>
                         <td style="max-width: 100px;"><?= ucfirst($promoCredit->type) ?></td>
                         <td><?= \App\Helpers\CodeHelper::formatPrice(__(':amount', ['amount' => $promoCredit->pending])) ?>

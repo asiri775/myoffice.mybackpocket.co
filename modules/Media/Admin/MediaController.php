@@ -125,12 +125,14 @@ class MediaController extends Controller
 
         $check = $file->storeAs( $folder, $newFileName2 . '.' . $file->getClientOriginalExtension(),'uploads');
 
-        // Try to compress Images
-        if(function_exists('proc_open') and function_exists('escapeshellarg')){
-            try{
-                ImageOptimizer::optimize(public_path("uploads/".$check));
-            }catch (\Exception $exception){
-
+        // Try to compress Images (guarded to avoid hangs on Windows and allow env toggle)
+        $optimizeEnabled = filter_var(env('IMAGE_OPTIMIZE_ENABLED', false), FILTER_VALIDATE_BOOLEAN);
+        $isWindows = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN';
+        if ($optimizeEnabled && !$isWindows && function_exists('proc_open') && function_exists('escapeshellarg')) {
+            try {
+                ImageOptimizer::optimize(public_path("uploads/" . $check));
+            } catch (\Exception $exception) {
+                // Silently skip optimization failures
             }
         }
 

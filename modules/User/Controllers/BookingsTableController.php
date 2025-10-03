@@ -34,6 +34,7 @@ class BookingsTableController extends Controller
     //booking history datatable
     public function __invoke(Request $request)
     {
+        //dd($request->all());
         $user_id = Auth::user()->id;
 
         $searchQuery = request()->search_query;
@@ -121,28 +122,12 @@ class BookingsTableController extends Controller
             }
         }
 
-        if (array_key_exists('transaction_status', $searchQuery)) {
-            switch ($searchQuery['transaction_status']) {
-                case 'paid':
-                    $bookings = $bookings->leftJoin(Payment::getTableName(), 'payment_id', '=', Payment::getTableName() . '.id')
-                        ->where(function ($query) {
-                            $query->where(Payment::getTableName() . '.status', '=', 'completed');
-                        })->select(Payment::getTableName() . '.id');
-                    break;
-                case 'unpaid':
-                    $bookings = $bookings->leftJoin(Payment::getTableName(), Booking::getTableName() . '.payment_id', '=', Payment::getTableName() . '.id')
-                        ->where(function ($query) {
-                            $query->where(Payment::getTableName() . '.status', '=', 'draft')->orWhereNull(Booking::getTableName() . '.payment_id');
-                        })->select(Payment::getTableName() . '.id');
-                    break;
-                case 'fail':
-                    $bookings = $bookings->leftJoin(Payment::getTableName(), 'payment_id', '=', Payment::getTableName() . '.id')
-                        ->where(function ($query) {
-                            $query->where(Payment::getTableName() . '.status', '=', 'fail');
-                        })->select(Payment::getTableName() . '.id');
-                    break;
-                default:
-                    break;
+        if (array_key_exists('transaction_status', $searchQuery) && $searchQuery['transaction_status'] !== '') {
+            $transactionStatus = $searchQuery['transaction_status'];
+            // Align with Booking.payment_status using Constants::BOOKING_PAYMENT_STATUSES keys
+            $validStatuses = array_keys(Constants::BOOKING_PAYMENT_STATUSES);
+            if (in_array($transactionStatus, $validStatuses)) {
+                $bookings = $bookings->where(Booking::getTableName() . '.payment_status', '=', $transactionStatus);
             }
         }
 
@@ -361,13 +346,7 @@ class BookingsTableController extends Controller
                 return '<span class="status-btn ' . $book_class . '">' . strtoupper($book_status) . '</span>';
             })
             ->addColumn('transaction_status', function ($booking) {
-                $payment = Payment::where('booking_id', $booking->id)->first();
-                if ($payment) {
-                    $payment_status = ($payment->status == "completed") ? "PAID" : 'UNPAID';
-                } else {
-                    $payment_status = "UNPAID";
-                }
-                return strtoupper($payment_status);
+                return strtoupper($booking->paymentStatusText());
             })
             ->addColumn('actions', function ($booking) {
                 $buttons = [

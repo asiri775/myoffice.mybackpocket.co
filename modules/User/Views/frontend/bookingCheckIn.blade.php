@@ -17,12 +17,35 @@
             border: 1px solid rgb(206, 212, 218) !important;
             height: 38px !important;
         }
+
+        /* Desktop layout fixes for check-in page */
+        .booking-checkin-page .book-details .table td,
+        .booking-checkin-page .book-details .table th { vertical-align: top; }
+
+        .booking-checkin-page .date-start .calendar-day {
+            display: inline-block;
+            padding: 8px 12px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            min-width: 120px;
+        }
+        .booking-checkin-page .date-start .status-btn { display: inline-block; margin-top: 10px; }
+
+        @media (min-width: 992px) {
+            .booking-checkin-page .book-table .col-lg-3 { flex: 0 0 25%; max-width: 25%; }
+            .booking-checkin-page .book-table .col-lg-9 { flex: 0 0 75%; max-width: 75%; }
+            .booking-checkin-page .book-details .table { width: 100%; }
+        }
+        .booking-checkin-page .section-heading { display: block; margin-bottom: 8px; }
+        .booking-checkin-page .section-text { display: block; margin-bottom: 10px; color: #4a4a4a; }
+        .booking-checkin-page .book-details .table td { padding: 16px 20px; }
+        .booking-checkin-page .book-details .btn { margin-top: 8px; }
     </style>
 					<?php 
 					//print_r($booking->object_id);
 					?>
     <!-- START PAGE CONTENT -->
-    <div class="content sm-gutter">
+    <div class="content sm-gutter booking-checkin-page">
         <!-- START BREADCRUMBS-->
 		<div class="bg-white">
             <div class="container-fluid pl-5">
@@ -60,13 +83,12 @@
                                                     #{{ $booking->id }}</td>
                                             </tr>
 											<tr>
-													<td colspan="2" style="align:left;">
+                                                <td colspan="2" style="text-align:left;">
 													<form method="post" action="{{ route('user.booking.sendsmspre') }}">
 															@csrf
 														
-														Pre Arrival Notification<br/>
-														This is the Notification that the Guest
-														will receive prior to the start of their booking.
+                                                        <strong class="section-heading">Pre Arrival Notification</strong>
+                                                        <p class="section-text">This is the Notification that the Guest will receive prior to the start of their booking.</p>
 														<input type="hidden" class="form-control" name="id" id="id" value="{{ $booking->id }}">
 														
 														<button type="submit" id="sendcheckinpre" class="btn btn-info">SendSMS</button>
@@ -74,12 +96,11 @@
 													</form>
 													{{ $sms_prearrival_message }}
 													</td>
-													<td colspan="2" style="align:left;">
+                                                <td colspan="2" style="text-align:left;">
 														<form method="post" action="{{ route('user.booking.sendsmsarrival') }}">
 																	@csrf
-																Arrival CheckIn<br/>
-																This is the Notification that the Guest
-																will receive at the start of their booking.
+                                                                <strong class="section-heading">Arrival CheckIn</strong>
+                                                                <p class="section-text">This is the Notification that the Guest will receive at the start of their booking.</p>
 																<div class="form-group" style="">
 																	<input type="hidden" class="form-control" name="id" id="id" value="{{ $booking->id }}">
 																	<button type="submit" id="sendcheckinattime" class="btn btn-info">SendSMS</button>
@@ -105,9 +126,8 @@
 													<form method="post" action="{{ route('user.booking.sendemaillatecheckin') }}">
 															@csrf
 														
-														Late CheckIn Host Reminder<br/>
-														This is the Notification that the Host receives
-														via Email, in case the guest has not Checked In.
+                                                        <strong class="section-heading">Late CheckIn Host Reminder</strong>
+                                                        <p class="section-text">This is the Notification that the Host receives via Email, in case the guest has not Checked In.</p>
 														<input type="hidden" class="form-control" name="id" id="id" value="{{ $booking->id }}">
 														
 														<button type="submit" id="sendemaillatecheckin" class="btn btn-info">SendEmail</button>

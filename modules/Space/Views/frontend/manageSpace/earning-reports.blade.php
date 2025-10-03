@@ -352,7 +352,7 @@
                             </div>
                             <div class="col col-mix">
                                 <div class="form-group">
-                                    <label for="sku" class="control-label">TRANSACTION STATUS</label>
+                                    <label for="sku" class="control-label">TRANSACTION STATUS </label>
                                     <select id="transaction_status" class="full-width form-control filterField"
                                         name="transaction_status">
                                         <option value="" selected>Select Status</option>

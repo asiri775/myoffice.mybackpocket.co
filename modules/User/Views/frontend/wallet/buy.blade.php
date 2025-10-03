@@ -102,7 +102,7 @@
                                                                     <td>{{ $item['name'] }}</td>
                                                                     <td>{{ format_money($item['amount']) }}</td>
                                                                     <td>{{ $item['credit'] }}</td>
-                                                                    <td><label class="btn btn-primary btn-sm]">
+                                                                    <td><label class="btn btn-primarpy btn-sm]">
                                                                             <input type="radio"
                                                                                 id="deposit_amount_<?= $k ?>"
                                                                                 name="deposit_option"
@@ -134,38 +134,7 @@
                                             </div>
                                         @endif
 
-                                        <div class="form-section mt-3">
-                                            <h4 class="form-section-title">{{ __('Select Payment Method') }}</h4>
-                                            <div class="gateways-table accordion mt-3" id="accordionExample">
-                                                @foreach ($gateways as $k => $gateway)
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            <strong class="mb-0">
-                                                                <label class="" data-toggle="collapse"
-                                                                    data-target="#gateway_{{ $k }}">
-                                                                    <input type="radio" name="payment_gateway"
-                                                                        value="{{ $k }}">
-                                                                    @if ($logo = $gateway->getDisplayLogo())
-                                                                        <img src="{{ $logo }}"
-                                                                            alt="{{ $gateway->getDisplayName() }}">
-                                                                    @endif
-                                                                    {{ $gateway->getDisplayName() }}
-                                                                </label>
-                                                            </strong>
-                                                        </div>
-                                                        <div id="gateway_{{ $k }}" class="collapse"
-                                                            aria-labelledby="headingOne" data-parent="#accordionExample">
-                                                            <div class="card-body">
-                                                                <div class="gateway_name">
-                                                                    {!! $gateway->getDisplayName() !!}
-                                                                </div>
-                                                                {!! $gateway->getDisplayHtml() !!}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
+                                        
                                         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
                                             integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
                                             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
