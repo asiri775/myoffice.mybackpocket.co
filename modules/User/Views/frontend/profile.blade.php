@@ -428,10 +428,15 @@ if($dataUser->phone === "+"){
                         contentType: false,
                         processData: false,
                         success: function(res) {
-                            $('input[name="avatar_id"]').val(res?.data?.id);
-                            $('.image-demo').attr("src", res?.url);
-                            $('.avatar-selector .img-box').attr("style",
-                                `background-image: url('${res?.url}')`);
+                            var uploadedId = res && res.data ? res.data.id : null;
+                            var uploadedUrl = (res && res.url) ? res.url : (res && res.data && res.data.sizes ? res.data.sizes.default : null);
+                            if (uploadedId) {
+                                $('input[name="avatar_id"]').val(uploadedId);
+                            }
+                            if (uploadedUrl) {
+                                $('.image-demo').attr("src", uploadedUrl);
+                                $('.avatar-selector .img-box').attr("style", `background-image: url('${uploadedUrl}')`);
+                            }
                             $("#profile-pic-gallery-modal").modal("hide");
                         },
                         error: function(e) {
@@ -529,6 +534,12 @@ if($dataUser->phone === "+"){
             // console.log(mainBox);
             // console.log(mainBox.find(".btn-file"));
             // console.log(mainBox.find(".btn-file input"));
+            mainBox.find(".btn-file input").click();
+        });
+
+        // Also open file picker when clicking the avatar image itself
+        $(document).on("click", ".avatar-selector .img-box", function() {
+            var mainBox = $(this).closest(".avatar-selector-main");
             mainBox.find(".btn-file input").click();
         });
 

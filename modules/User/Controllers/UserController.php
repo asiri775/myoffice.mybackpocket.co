@@ -37,7 +37,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\MessageBag;
 use Modules\Vendor\Models\VendorRequest;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 use Modules\Booking\Models\Booking;
 use App\Helpers\ReCaptchaEngine;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -256,7 +256,11 @@ class UserController extends FrontendController
         $input = $request->except('bio');
         $user->fill($input);
         $user->bio = clean($request->input('bio'));
-        $user->birthday = date("Y-m-d", strtotime($user->birthday));
+        // Normalize birthday from request if provided (supports display_date format)
+        $birthdayInput = $request->input('birthday');
+        if (!empty($birthdayInput)) {
+            $user->birthday = date("Y-m-d", strtotime($birthdayInput));
+        }
         $user->user_name = Str::slug($request->input('user_name'), "_");
         $user->save();
         return redirect()->back()->with('success', __('Update successfully'));

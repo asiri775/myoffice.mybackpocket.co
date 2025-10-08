@@ -19,6 +19,7 @@ use Modules\Location\Models\LocationCategory;
 use Modules\Space\Models\Space;
 use Modules\Location\Models\Location;
 use Modules\Core\Models\Attributes;
+use Modules\Core\Models\Terms;
 use Modules\Booking\Models\Booking;
 use Modules\Coupon\Models\Coupon;
 use Modules\Space\Models\SpaceBlockTime;
@@ -228,6 +229,70 @@ Check OUT
         $row->house_rules = $spaceSettings['space_default_house_rules'];
         $row->tos = $spaceSettings['space_default_terms'];
 
+        // Preselect default amenities for new space creation
+        // Fetch all Amenity terms and select target ones using robust name matching
+        $amenitiesTerms = Terms::whereHas('attribute', function ($q) {
+                $q->where('slug', 'amenities')->where('service', 'space');
+            })
+            ->get();
+
+        $defaultAmenityTermIds = $amenitiesTerms->filter(function ($term) {
+            $name = strtolower(trim($term->name));
+
+            $hasAirConditioning = (strpos($name, 'air') !== false) && (strpos($name, 'condition') !== false || strpos($name, 'conditioning') !== false);
+            $hasFreeParking = ((strpos($name, 'park') !== false || strpos($name, 'parking') !== false) && (strpos($name, 'free') !== false));
+            $hasReception = (strpos($name, 'reception') !== false || strpos($name, 'receptionist') !== false);
+            $hasElevator = (strpos($name, 'elevator') !== false || strpos($name, 'lift') !== false);
+            $hasWaitingLounge = ((strpos($name, 'waiting') !== false || strpos($name, 'waitiing') !== false) && strpos($name, 'lounge') !== false);
+            $hasShippingReceiving = ((strpos($name, 'shipping') !== false || strpos($name, 'mail') !== false) && (strpos($name, 'receiv') !== false || strpos($name, 'received') !== false || strpos($name, 'recived') !== false));
+            $hasKitchen = (
+                strpos($name, 'kitchen') !== false ||
+                strpos($name, 'itchen') !== false ||
+                strpos($name, 'kitchenette') !== false ||
+                strpos($name, 'pantry') !== false
+            );
+            $hasWifiInternet = (
+                strpos($name, 'wifi') !== false ||
+                strpos($name, 'wi-fi') !== false ||
+                strpos($name, 'wi fi') !== false ||
+                strpos($name, 'internet') !== false ||
+                strpos($name, 'broadband') !== false ||
+                strpos($name, 'ethernet') !== false ||
+                strpos($name, 'fiber') !== false ||
+                strpos($name, 'fibre') !== false
+            );
+            $hasRestrooms = (
+                strpos($name, 'restroom') !== false ||
+                strpos($name, 'rest room') !== false ||
+                strpos($name, 'restrooms') !== false ||
+                strpos($name, 'washroom') !== false ||
+                strpos($name, 'wash room') !== false ||
+                strpos($name, 'bathroom') !== false ||
+                strpos($name, 'bath room') !== false ||
+                strpos($name, 'toilet') !== false ||
+                $name === 'wc' || strpos($name, 'w.c') !== false
+            );
+            $hasMeetingRooms = (
+                (strpos($name, 'meeting') !== false && (strpos($name, 'room') !== false || strpos($name, 'rooms') !== false || strpos($name, 'rm') !== false)) ||
+                strpos($name, 'meetingroom') !== false ||
+                strpos($name, 'boardroom') !== false ||
+                strpos($name, 'board room') !== false ||
+                strpos($name, 'conference') !== false ||
+                strpos($name, 'huddle room') !== false
+            );
+
+            return $hasAirConditioning
+                || $hasFreeParking
+                || $hasReception
+                || $hasElevator
+                || $hasWaitingLounge
+                || $hasShippingReceiving
+                || $hasKitchen
+                || $hasWifiInternet
+                || $hasRestrooms
+                || $hasMeetingRooms;
+        })->pluck('id');
+
         $data = [
             'blockTimings' => [],
             'row' => $row,
@@ -236,6 +301,8 @@ Check OUT
             'location_category' => $this->locationCategoryClass::where('status', 'publish')->get(),
             'attributes' => $this->attributesClass::where('service', 'space')->get(),
             'spaceSettings' => $spaceSettings,
+            // Used by amenities view to pre-check terms
+            'selected_terms' => collect($defaultAmenityTermIds),
             'breadcrumbs' => [
                 [
                     'name' => __('Manage Spaces'),
